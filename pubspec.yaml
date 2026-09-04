@@ -1,0 +1,52 @@
+name: dailypouch
+description: "DailyPouch: Offline Life Tools - A small pocket container holding all my daily essentials."
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.12.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+
+  # UI Icons & Typography
+  cupertino_icons: ^1.0.8
+
+  # State Management & DI
+  flutter_bloc: ^9.0.0
+  get_it: ^8.0.3
+  equatable: ^2.0.7
+
+  # Functional Error Handling
+  fpdart: ^1.1.1
+
+  # Local Persistence
+  path_provider: ^2.1.5
+
+  # Notifications & Scheduling
+  flutter_local_notifications: ^18.0.1
+
+  # Charts & Formatting
+  fl_chart: ^0.70.2
+  intl: ^0.20.2
+  uuid: ^4.5.1
+
+  # Media & Tools (Phase 4, 5, 6)
+  image: ^4.3.0
+  pdf: ^3.11.1
+  share_plus: ^10.1.4
+  wakelock_plus: ^1.2.8
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+  mocktail: ^1.0.4
+  bloc_test: ^10.0.0
+
+flutter:
+  uses-material-design: true
