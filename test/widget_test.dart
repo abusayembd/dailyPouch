@@ -63,7 +63,7 @@ void main() {
     expect(find.byType(ArcadeModuleCard), findsNWidgets(6));
 
     // Tap the Subscription Tracker card
-    await tester.tap(find.text('Subscription & Bill Tracker'));
+    await tester.tap(find.text('Subscription Tracker'));
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 100));
     await tester.pumpAndSettle();

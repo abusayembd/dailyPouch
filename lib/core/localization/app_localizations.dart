@@ -426,15 +426,15 @@ class AppLocalizations {
     switch (id) {
       case 'subscription_tracker':
         return _localizedValue({
-          'en': 'Subscription & Bill Tracker',
-          'bn': 'সাবস্ক্রিপশন ও বিল ট্র্যাকার',
+          'en': 'Subscription Tracker',
+          'bn': 'সাবস্ক্রিপশন ট্র্যাকার',
           'es': 'Rastreador de Suscripciones',
-          'fr': 'Suivi des Abonnements & Factures',
-          'de': 'Abo- & Rechnungs-Tracker',
-          'hi': 'सब्सक्रिप्शन व बिल ट्रैकर',
-          'ar': 'تتبع الاشتراكات والفواتير',
-          'zh': '订阅与日常账单管理',
-          'ja': 'サブスク＆請求書トラッカー',
+          'fr': 'Suivi des Abonnements',
+          'de': 'Abo-Tracker',
+          'hi': 'सब्सक्रिप्शन ट्रैकर',
+          'ar': 'تتبع الاشتراكات',
+          'zh': '周期订阅管理',
+          'ja': 'サブスク管理',
         });
       case 'price_calculator':
         return _localizedValue({
@@ -450,39 +450,39 @@ class AppLocalizations {
         });
       case 'pantry_expiry':
         return _localizedValue({
-          'en': 'Pantry & Medicine Expiry',
-          'bn': 'প্যান্ট্রি ও ওষুধ মেয়াদ ট্র্যাকার',
-          'es': 'Despensa y Vencimiento de Medicinas',
-          'fr': 'Garde-manger & Expiration Médicaments',
-          'de': 'Vorratskammer & Verfallsdaten',
-          'hi': 'रसोई भंडार व दवा एक्सपायरी',
-          'ar': 'مؤن المنزل وصلاحية الأدوية',
-          'zh': '食品与药品保质期追踪',
-          'ja': '食品庫・常備薬の賞味期限管理',
+          'en': 'Pantry & Medicine',
+          'bn': 'প্যান্ট্রি ও ওষুধ ট্র্যাকার',
+          'es': 'Despensa y Medicinas',
+          'fr': 'Garde-manger & Médicaments',
+          'de': 'Vorratskammer & Medizin',
+          'hi': 'रसोई व दवा एक्सपायरी',
+          'ar': 'مؤن المنزل والأدوية',
+          'zh': '食品与药品管理',
+          'ja': '食品庫＆常備薬管理',
         });
       case 'image_compressor':
         return _localizedValue({
-          'en': 'Batch Image & PDF Compressor',
+          'en': 'IMG & PDF Compressor',
           'bn': 'ছবি ও পিডিএফ কম্প্রেসর',
           'es': 'Compresor de Imágenes y PDF',
-          'fr': 'Compresseur Image & PDF par Lot',
-          'de': 'Stapel-Bild & PDF Kompressor',
+          'fr': 'Compresseur Image & PDF',
+          'de': 'Bild & PDF Kompressor',
           'hi': 'फोटो व पीडीएफ कंप्रेसर',
-          'ar': 'ضغط دفعات الصور ومستندات PDF',
-          'zh': '批量图片与PDF压缩工具',
-          'ja': '一括画像＆PDF圧縮ツール',
+          'ar': 'ضغط الصور ومستندات PDF',
+          'zh': '图片与PDF压缩工具',
+          'ja': '画像＆PDF圧縮ツール',
         });
       case 'micro_budgeter':
         return _localizedValue({
-          'en': 'Single-Goal Micro-Budgeter',
-          'bn': 'একক-লক্ষ্য মাইক্রো বাজেট',
-          'es': 'Micro-Presupuesto por Metas',
-          'fr': 'Micro-Budget à Objectif Unique',
-          'de': 'Einzelziel Mikro-Budgeter',
-          'hi': 'एकल-लक्ष्य माइक्रो बजट',
-          'ar': 'الميزانية المصغرة للأهداف',
-          'zh': '单一目标极简微预算',
-          'ja': '目標別マイクロ予算管理',
+          'en': 'Single-Goal Budgeter',
+          'bn': 'একক-লক্ষ্য বাজেট',
+          'es': 'Micro-Presupuesto',
+          'fr': 'Micro-Budget par Objectif',
+          'de': 'Einzelziel-Budgeter',
+          'hi': 'एकल-लक्ष्य बजट',
+          'ar': 'ميزانية الهدف الواحد',
+          'zh': '单一目标微预算',
+          'ja': '目標別マイクロ予算',
         });
       case 'interval_timer':
         return _localizedValue({

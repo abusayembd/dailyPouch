@@ -8,7 +8,7 @@ class Module3DIllustration extends StatelessWidget {
   const Module3DIllustration({
     super.key,
     required this.moduleId,
-    this.size = 88,
+    this.size = 68,
   });
 
   @override
@@ -40,7 +40,15 @@ class Module3DIllustration extends StatelessWidget {
     return SizedBox(
       width: size,
       height: size,
-      child: artwork,
+      child: FittedBox(
+        fit: BoxFit.contain,
+        alignment: Alignment.center,
+        child: SizedBox(
+          width: 88,
+          height: 88,
+          child: artwork,
+        ),
+      ),
     );
   }
 }
@@ -205,7 +213,7 @@ class _SubscriptionArtwork3D extends StatelessWidget {
 }
 
 // =============================================================
-// 2. SMART PRICE CALCULATOR: 3D Product Price Comparison & Best Deal
+// 2. SMART PRICE COMPARE: 3D Product Price Comparison & Best Deal
 // =============================================================
 class _PriceCalcArtwork3D extends StatelessWidget {
   const _PriceCalcArtwork3D();
@@ -408,40 +416,40 @@ class _PriceCalcArtwork3D extends StatelessWidget {
             ),
           ),
 
-          // Floating Comparison "BEST DEAL" Badge positioned on top of Pack B (right side)
+          // Floating Comparison "BEST DEAL" Badge positioned close atop Pack B & Pack A
           Positioned(
-            top: -6,
-            right: 0,
+            top: 10,
+            right: 1,
             child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 2),
+              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
               decoration: BoxDecoration(
                 gradient: const LinearGradient(
                   colors: [Color(0xFF10B981), Color(0xFF059669)],
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
                 ),
-                borderRadius: BorderRadius.circular(7),
-                border: Border.all(color: Colors.white, width: 1),
+                borderRadius: BorderRadius.circular(9),
+                border: Border.all(color: Colors.white, width: 1.4),
                 boxShadow: [
                   BoxShadow(
-                    color: const Color(0xFF10B981).withAlpha(120),
-                    blurRadius: 6,
-                    offset: const Offset(0, 2),
+                    color: const Color(0xFF10B981).withAlpha(150),
+                    blurRadius: 10,
+                    offset: const Offset(0, 3),
                   ),
                 ],
               ),
               child: const Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Icon(Icons.thumb_up_rounded, color: Colors.white, size: 7.5),
-                  SizedBox(width: 2),
+                  Icon(Icons.thumb_up_rounded, color: Colors.white, size: 10.5),
+                  SizedBox(width: 3.5),
                   Text(
                     'BEST DEAL',
                     style: TextStyle(
                       color: Colors.white,
-                      fontSize: 6.5,
+                      fontSize: 8.5,
                       fontWeight: FontWeight.w900,
-                      letterSpacing: 0.3,
+                      letterSpacing: 0.4,
                     ),
                   ),
                 ],
@@ -589,25 +597,32 @@ class _PantryMedicineArtwork3D extends StatelessWidget {
               ),
             ),
           ),
-          // Floating Green Shield / Expiry Badge
+          // Floating Green Shield / Expiry Badge - Bigger & nestled close to components
           Positioned(
-            top: -2,
-            right: 8,
+            top: 15,
+            right: 18,
             child: Container(
-              padding: const EdgeInsets.all(3),
+              width: 26,
+              height: 26,
               decoration: BoxDecoration(
-                color: const Color(0xFF10B981),
+                gradient: const LinearGradient(
+                  colors: [Color(0xFF00E676), Color(0xFF10B981)],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                ),
                 shape: BoxShape.circle,
-                border: Border.all(color: Colors.white, width: 1.2),
-                boxShadow: const [
+                border: Border.all(color: Colors.white, width: 1.8),
+                boxShadow: [
                   BoxShadow(
-                    color: Colors.black26,
-                    blurRadius: 6,
-                    offset: Offset(0, 2),
+                    color: const Color(0xFF10B981).withAlpha(160),
+                    blurRadius: 10,
+                    offset: const Offset(0, 3),
                   ),
                 ],
               ),
-              child: const Icon(Icons.check_rounded, color: Colors.white, size: 10),
+              child: const Center(
+                child: Icon(Icons.check_rounded, color: Colors.white, size: 16.5),
+              ),
             ),
           ),
         ],
@@ -887,7 +902,7 @@ class _EnvelopeFlapPainter extends CustomPainter {
 }
 
 // =============================================================
-// 6. INTERVAL & REST TIMER: 3D Sports Stopwatch & HIIT Dumbbell
+// 6. INTERVAL & REST TIMER: 3D Heavy Dumbbell & HIIT Timer
 // =============================================================
 class _IntervalTimerArtwork3D extends StatelessWidget {
   const _IntervalTimerArtwork3D();
@@ -898,54 +913,220 @@ class _IntervalTimerArtwork3D extends StatelessWidget {
       alignment: Alignment.center,
       transform: Matrix4.identity()
         ..setEntry(3, 2, 0.002)
-        ..rotateZ(-0.25)
-        ..rotateX(0.38)
-        ..rotateY(0.22),
+        ..rotateZ(-0.20)
+        ..rotateX(0.34)
+        ..rotateY(0.18),
       child: Stack(
         alignment: Alignment.center,
         clipBehavior: Clip.none,
         children: [
-          // 3D Metallic Dumbbell (Background)
+          // 3D Cast Shadow of the Dumbbell
           Positioned(
-            left: 0,
+            left: 4,
+            bottom: 2,
+            child: Container(
+              width: 74,
+              height: 16,
+              decoration: BoxDecoration(
+                color: Colors.black.withAlpha(45),
+                borderRadius: BorderRadius.circular(10),
+                boxShadow: const [
+                  BoxShadow(
+                    color: Colors.black38,
+                    blurRadius: 10,
+                    offset: Offset(0, 4),
+                  ),
+                ],
+              ),
+            ),
+          ),
+
+          // 3D Solid Metallic Dumbbell (Centerpiece Hero)
+          Positioned(
+            left: 2,
             bottom: 6,
             child: Transform.rotate(
-              angle: -0.5,
-              child: Container(
-                width: 48,
-                height: 18,
-                decoration: BoxDecoration(
-                  gradient: const LinearGradient(
-                    colors: [Color(0xFF475569), Color(0xFF1E293B)],
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                  ),
-                  borderRadius: BorderRadius.circular(4),
-                  boxShadow: const [
-                    BoxShadow(
-                      color: Colors.black26,
-                      blurRadius: 8,
-                      offset: Offset(2, 4),
-                    ),
-                  ],
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              angle: -0.22,
+              child: SizedBox(
+                width: 78,
+                height: 48,
+                child: Stack(
+                  alignment: Alignment.center,
                   children: [
+                    // Steel Bar with Chrome Reflections
                     Container(
-                      width: 10,
-                      height: 18,
+                      width: 44,
+                      height: 10,
                       decoration: BoxDecoration(
-                        color: const Color(0xFF64748B),
+                        gradient: const LinearGradient(
+                          colors: [
+                            Color(0xFFFFFFFF),
+                            Color(0xFFCBD5E1),
+                            Color(0xFF64748B),
+                            Color(0xFF1E293B),
+                            Color(0xFF94A3B8),
+                          ],
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
+                        ),
                         borderRadius: BorderRadius.circular(3),
+                        boxShadow: const [
+                          BoxShadow(
+                            color: Colors.black26,
+                            blurRadius: 4,
+                            offset: Offset(0, 2),
+                          ),
+                        ],
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Container(width: 1.5, height: 10, color: Colors.black26),
+                          const SizedBox(width: 2),
+                          Container(width: 1.5, height: 10, color: Colors.black26),
+                          const SizedBox(width: 2),
+                          Container(width: 1.5, height: 10, color: Colors.black26),
+                        ],
                       ),
                     ),
-                    Container(
-                      width: 10,
-                      height: 18,
-                      decoration: BoxDecoration(
-                        color: const Color(0xFF64748B),
-                        borderRadius: BorderRadius.circular(3),
+
+                    // Left Collar Lock
+                    Positioned(
+                      left: 17,
+                      child: Container(
+                        width: 4,
+                        height: 16,
+                        decoration: BoxDecoration(
+                          gradient: const LinearGradient(
+                            colors: [Color(0xFFFFD54F), Color(0xFFFF8F00)],
+                            begin: Alignment.topCenter,
+                            end: Alignment.bottomCenter,
+                          ),
+                          borderRadius: BorderRadius.circular(2),
+                        ),
+                      ),
+                    ),
+
+                    // Right Collar Lock
+                    Positioned(
+                      right: 17,
+                      child: Container(
+                        width: 4,
+                        height: 16,
+                        decoration: BoxDecoration(
+                          gradient: const LinearGradient(
+                            colors: [Color(0xFFFFD54F), Color(0xFFFF8F00)],
+                            begin: Alignment.topCenter,
+                            end: Alignment.bottomCenter,
+                          ),
+                          borderRadius: BorderRadius.circular(2),
+                        ),
+                      ),
+                    ),
+
+                    // Left Weight Plate Stack
+                    Positioned(
+                      left: 0,
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          // Outer Plate (Smaller)
+                          Container(
+                            width: 10,
+                            height: 36,
+                            decoration: BoxDecoration(
+                              gradient: const LinearGradient(
+                                colors: [Color(0xFF6366F1), Color(0xFF312E81)],
+                                begin: Alignment.topCenter,
+                                end: Alignment.bottomCenter,
+                              ),
+                              borderRadius: BorderRadius.circular(5),
+                              border: Border.all(color: const Color(0xFF818CF8), width: 1),
+                              boxShadow: const [
+                                BoxShadow(
+                                  color: Colors.black26,
+                                  blurRadius: 6,
+                                  offset: Offset(-2, 3),
+                                ),
+                              ],
+                            ),
+                          ),
+                          const SizedBox(width: 1.5),
+                          // Inner Plate (Larger)
+                          Container(
+                            width: 12,
+                            height: 46,
+                            decoration: BoxDecoration(
+                              gradient: const LinearGradient(
+                                colors: [Color(0xFF818CF8), Color(0xFF4338CA)],
+                                begin: Alignment.topCenter,
+                                end: Alignment.bottomCenter,
+                              ),
+                              borderRadius: BorderRadius.circular(6),
+                              border: Border.all(color: Colors.white70, width: 1),
+                              boxShadow: const [
+                                BoxShadow(
+                                  color: Colors.black38,
+                                  blurRadius: 8,
+                                  offset: Offset(2, 4),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+
+                    // Right Weight Plate Stack
+                    Positioned(
+                      right: 0,
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          // Inner Plate (Larger)
+                          Container(
+                            width: 12,
+                            height: 46,
+                            decoration: BoxDecoration(
+                              gradient: const LinearGradient(
+                                colors: [Color(0xFF818CF8), Color(0xFF4338CA)],
+                                begin: Alignment.topCenter,
+                                end: Alignment.bottomCenter,
+                              ),
+                              borderRadius: BorderRadius.circular(6),
+                              border: Border.all(color: Colors.white70, width: 1),
+                              boxShadow: const [
+                                BoxShadow(
+                                  color: Colors.black38,
+                                  blurRadius: 8,
+                                  offset: Offset(2, 4),
+                                ),
+                              ],
+                            ),
+                          ),
+                          const SizedBox(width: 1.5),
+                          // Outer Plate (Smaller)
+                          Container(
+                            width: 10,
+                            height: 36,
+                            decoration: BoxDecoration(
+                              gradient: const LinearGradient(
+                                colors: [Color(0xFF6366F1), Color(0xFF312E81)],
+                                begin: Alignment.topCenter,
+                                end: Alignment.bottomCenter,
+                              ),
+                              borderRadius: BorderRadius.circular(5),
+                              border: Border.all(color: const Color(0xFF818CF8), width: 1),
+                              boxShadow: const [
+                                BoxShadow(
+                                  color: Colors.black26,
+                                  blurRadius: 6,
+                                  offset: Offset(2, 3),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ],
@@ -953,62 +1134,63 @@ class _IntervalTimerArtwork3D extends StatelessWidget {
               ),
             ),
           ),
-          // 3D Digital Sports Stopwatch (Foreground)
+
+          // 3D Floating Digital Stopwatch / Interval Badge (Top Right)
           Positioned(
             right: 0,
             top: 2,
             child: Container(
-              width: 52,
-              height: 58,
+              width: 38,
+              height: 42,
               decoration: BoxDecoration(
                 gradient: const LinearGradient(
-                  colors: [Color(0xFF7C4DFF), Color(0xFF512DA8)],
+                  colors: [Color(0xFFFF3366), Color(0xFFC2185B)],
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
                 ),
-                shape: BoxShape.circle,
+                borderRadius: BorderRadius.circular(12),
                 border: Border.all(color: Colors.white, width: 1.5),
                 boxShadow: [
                   BoxShadow(
-                    color: const Color(0xFF7C4DFF).withAlpha(120),
-                    blurRadius: 12,
-                    offset: const Offset(2, 6),
+                    color: const Color(0xFFFF3366).withAlpha(140),
+                    blurRadius: 10,
+                    offset: const Offset(0, 3),
                   ),
                 ],
               ),
               child: Stack(
                 alignment: Alignment.center,
                 children: [
-                  // Top Crown Button
+                  // Crown Button on top
                   Positioned(
-                    top: -4,
+                    top: -3,
                     child: Container(
-                      width: 10,
-                      height: 6,
+                      width: 8,
+                      height: 4,
                       decoration: BoxDecoration(
                         color: const Color(0xFFFFD54F),
                         borderRadius: BorderRadius.circular(2),
                       ),
                     ),
                   ),
-                  // Inner Dial Ring
+                  // Inner LED display
                   Container(
-                    width: 40,
-                    height: 40,
+                    width: 28,
+                    height: 28,
                     decoration: BoxDecoration(
                       color: const Color(0xFF1E1B4B),
                       shape: BoxShape.circle,
-                      border: Border.all(color: const Color(0xFF818CF8), width: 1),
+                      border: Border.all(color: const Color(0xFFFF80AB), width: 0.8),
                     ),
                     child: const Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Icon(Icons.bolt_rounded, color: Color(0xFFFFD700), size: 14),
+                        Icon(Icons.bolt_rounded, color: Color(0xFFFFD700), size: 11),
                         Text(
                           '20s',
                           style: TextStyle(
                             color: Colors.white,
-                            fontSize: 8,
+                            fontSize: 7.5,
                             fontWeight: FontWeight.w900,
                             fontFamily: 'monospace',
                           ),

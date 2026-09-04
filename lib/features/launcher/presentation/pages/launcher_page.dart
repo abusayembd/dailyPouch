@@ -213,7 +213,7 @@ class _LauncherPageState extends State<LauncherPage> {
             physics: const BouncingScrollPhysics(),
             slivers: [
               SliverPadding(
-                padding: const EdgeInsets.fromLTRB(16, 16, 16, 8),
+                padding: const EdgeInsets.fromLTRB(16, 12, 16, 6),
                 sliver: SliverToBoxAdapter(
                   child: SearchFilterBar(
                     controller: _searchController,
@@ -272,7 +272,7 @@ class _LauncherPageState extends State<LauncherPage> {
                 )
               else
                 SliverPadding(
-                  padding: const EdgeInsets.fromLTRB(16, 8, 16, 32),
+                  padding: const EdgeInsets.fromLTRB(16, 4, 16, 16),
                   sliver: SliverToBoxAdapter(
                     child: ResponsiveLayout(
                       builder: (context, crossAxisCount) {
@@ -281,9 +281,9 @@ class _LauncherPageState extends State<LauncherPage> {
                           physics: const NeverScrollableScrollPhysics(),
                           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                             crossAxisCount: crossAxisCount,
-                            crossAxisSpacing: 12,
-                            mainAxisSpacing: 12,
-                            childAspectRatio: crossAxisCount == 2 ? 0.76 : 1.05,
+                            crossAxisSpacing: 10,
+                            mainAxisSpacing: 10,
+                            childAspectRatio: crossAxisCount == 2 ? 1.38 : 1.62,
                           ),
                           itemCount: state.filteredModules.length,
                           itemBuilder: (context, index) {

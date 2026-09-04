@@ -45,89 +45,75 @@ class ArcadeModuleCard extends StatelessWidget {
 
     return Material(
       color: Colors.transparent,
-      borderRadius: BorderRadius.circular(22),
+      borderRadius: BorderRadius.circular(20),
       child: InkWell(
         onTap: onTap,
         onLongPress: onInfoTap,
-        borderRadius: BorderRadius.circular(22),
+        borderRadius: BorderRadius.circular(20),
         child: Container(
+          clipBehavior: Clip.antiAlias,
           decoration: BoxDecoration(
             gradient: gradient,
-            borderRadius: BorderRadius.circular(22),
+            borderRadius: BorderRadius.circular(20),
             border: Border.all(
-              color: Colors.white.withAlpha(180),
+              color: Colors.white.withAlpha(190),
               width: 1.2,
             ),
             boxShadow: [
               BoxShadow(
-                color: Colors.black.withAlpha(15),
-                blurRadius: 14,
+                color: Colors.black.withAlpha(12),
+                blurRadius: 10,
                 spreadRadius: 0,
-                offset: const Offset(0, 4),
+                offset: const Offset(0, 3),
               ),
               BoxShadow(
-                color: module.accentColor.withAlpha(35),
-                blurRadius: 18,
+                color: module.accentColor.withAlpha(28),
+                blurRadius: 14,
                 spreadRadius: 1,
-                offset: const Offset(0, 6),
+                offset: const Offset(0, 4),
               ),
             ],
           ),
-          padding: const EdgeInsets.all(16),
-          child: Stack(
-            clipBehavior: Clip.none,
-            children: [
-              // 3D Isometric Artwork Layered in the Background
-              Positioned(
-                right: -6,
-                bottom: -6,
-                child: Opacity(
-                  opacity: 0.85,
-                  child: Module3DIllustration(
-                    moduleId: module.id,
-                    size: 80,
-                  ),
-                ),
-              ),
-
-              // Main Foreground Content
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  // Top Row: Icon Badge (Left) + Category Pill (Right)
-                  Row(
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(11, 8, 5, 8),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // Top Row: Icon Badge (Left) + Category Pill (Right)
+                Padding(
+                  padding: const EdgeInsets.only(right: 5),
+                  child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       // Square/Rounded Glowing Icon Badge
                       Container(
-                        width: 42,
-                        height: 42,
+                        width: 28,
+                        height: 28,
                         decoration: BoxDecoration(
                           gradient: module.gradient,
-                          borderRadius: BorderRadius.circular(13),
+                          borderRadius: BorderRadius.circular(8),
                           boxShadow: [
                             BoxShadow(
-                              color: module.accentColor.withAlpha(90),
-                              blurRadius: 10,
-                              offset: const Offset(0, 3),
+                              color: module.accentColor.withAlpha(80),
+                              blurRadius: 5,
+                              offset: const Offset(0, 1.5),
                             ),
                           ],
                         ),
                         child: Icon(
                           module.icon,
                           color: Colors.white,
-                          size: 22,
+                          size: 15,
                         ),
                       ),
 
                       // Category/Phase Pill Badge
                       Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 4),
+                        padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
                         decoration: BoxDecoration(
                           color: module.accentColor.withAlpha(25),
-                          borderRadius: BorderRadius.circular(12),
+                          borderRadius: BorderRadius.circular(6),
                           border: Border.all(
                             color: module.accentColor.withAlpha(90),
                             width: 1,
@@ -137,48 +123,78 @@ class ArcadeModuleCard extends StatelessWidget {
                           module.badgeText,
                           style: AppTypography.badgeText.copyWith(
                             color: module.accentColor,
-                            fontSize: 9.5,
+                            fontSize: 7.5,
                             fontWeight: FontWeight.w800,
-                            letterSpacing: 0.5,
+                            letterSpacing: 0.3,
                           ),
                         ),
                       ),
                     ],
                   ),
+                ),
 
-                  const SizedBox(height: 14),
+                const SizedBox(height: 5),
 
-                  // Middle: Bold Title Text
-                  Text(
+                // Middle: Bold Title Text (+2px larger)
+                Padding(
+                  padding: const EdgeInsets.only(right: 5),
+                  child: Text(
                     localizedTitle.isNotEmpty ? localizedTitle : module.title,
                     style: AppTypography.titleMedium.copyWith(
                       color: AppColors.textPrimary,
                       fontWeight: FontWeight.w800,
-                      fontSize: 15.5,
+                      fontSize: 14.5,
                       letterSpacing: -0.2,
-                      height: 1.25,
+                      height: 1.15,
                     ),
-                    maxLines: 2,
+                    maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                   ),
+                ),
 
-                  const SizedBox(height: 6),
+                const SizedBox(height: 3),
 
-                  // Subtitle: Full Action Description Text without truncation
-                  Text(
-                    localizedDescription.isNotEmpty
-                        ? localizedDescription
-                        : module.description,
-                    style: AppTypography.bodyMedium.copyWith(
-                      color: AppColors.textSecondary,
-                      fontSize: 12,
-                      fontWeight: FontWeight.w400,
-                      height: 1.35,
-                    ),
+                // Bottom Row: True Level Side-by-Side (+2px larger subtitle font)
+                Expanded(
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      // Left Half (64%): Subtitle text (+2px larger)
+                      Expanded(
+                        flex: 16,
+                        child: Text(
+                          localizedDescription.isNotEmpty
+                              ? localizedDescription
+                              : module.description,
+                          style: AppTypography.bodyMedium.copyWith(
+                            color: AppColors.textSecondary,
+                            fontSize: 11.5,
+                            fontWeight: FontWeight.w500,
+                            height: 1.25,
+                          ),
+                          maxLines: 4,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+
+                      const SizedBox(width: 2),
+
+                      // Right Half (36%): 3D Illustration centered side-by-side
+                      Expanded(
+                        flex: 9,
+                        child: Align(
+                          alignment: Alignment.centerRight,
+                          child: Module3DIllustration(
+                            moduleId: module.id,
+                            size: 52,
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
-                ],
-              ),
-            ],
+                ),
+              ],
+            ),
           ),
         ),
       ),

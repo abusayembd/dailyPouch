@@ -53,7 +53,7 @@ class UtilityModule extends Equatable {
   static const List<UtilityModule> defaultModules = [
     UtilityModule(
       id: 'subscription_tracker',
-      title: 'Subscription & Bill Tracker',
+      title: 'Subscription Tracker',
       shortTitle: 'Subscriptions',
       description: 'Track recurring expenses, burn rate & renewal alerts',
       icon: Icons.auto_awesome_motion_rounded,
@@ -77,7 +77,7 @@ class UtilityModule extends Equatable {
     ),
     UtilityModule(
       id: 'pantry_expiry',
-      title: 'Pantry & Medicine Expiry',
+      title: 'Pantry & Medicine',
       shortTitle: 'Pantry Expiry',
       description: 'Barcode scanning, zone tracking & spoilage warnings',
       icon: Icons.inventory_2_rounded,
@@ -89,7 +89,7 @@ class UtilityModule extends Equatable {
     ),
     UtilityModule(
       id: 'image_compressor',
-      title: 'Batch Image & PDF Compressor',
+      title: 'IMG & PDF Compressor',
       shortTitle: 'Image / PDF',
       description: 'Target-size photo squisher, passport crop & PDF merge',
       icon: Icons.photo_size_select_small_rounded,
@@ -101,7 +101,7 @@ class UtilityModule extends Equatable {
     ),
     UtilityModule(
       id: 'micro_budgeter',
-      title: 'Single-Goal Micro-Budgeter',
+      title: 'Single-Goal Budgeter',
       shortTitle: 'Micro Budget',
       description: 'Isolated budget envelopes, runway gauge & quick log',
       icon: Icons.account_balance_wallet_rounded,
