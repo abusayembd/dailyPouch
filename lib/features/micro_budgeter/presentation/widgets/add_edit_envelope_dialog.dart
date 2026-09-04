@@ -71,8 +71,8 @@ class _AddEditEnvelopeDialogState extends State<AddEditEnvelopeDialog> {
       lastDate: DateTime.now().add(const Duration(days: 365 * 5)),
       builder: (context, child) {
         return Theme(
-          data: ThemeData.dark().copyWith(
-            colorScheme: const ColorScheme.dark(
+          data: ThemeData.light().copyWith(
+            colorScheme: const ColorScheme.light(
               primary: AppColors.moduleBudgeter,
               surface: AppColors.surfaceCard,
             ),
@@ -211,44 +211,20 @@ class _AddEditEnvelopeDialogState extends State<AddEditEnvelopeDialog> {
                 const SizedBox(height: 14),
 
                 // Date Range Picker
-                InkWell(
+                TextFormField(
+                  key: ValueKey(dateRangeStr),
+                  initialValue: dateRangeStr,
+                  readOnly: true,
                   onTap: _pickDateRange,
-                  borderRadius: BorderRadius.circular(14),
-                  child: Container(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 16,
-                      vertical: 14,
-                    ),
-                    decoration: BoxDecoration(
-                      color: AppColors.surfaceElevated,
-                      borderRadius: BorderRadius.circular(14),
-                      border: Border.all(color: AppColors.cardBorder),
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Row(
-                          children: [
-                            const Icon(
-                              Icons.date_range_rounded,
-                              color: AppColors.moduleBudgeter,
-                              size: 20,
-                            ),
-                            const SizedBox(width: 12),
-                            Text(
-                              l10n.runwayDuration,
-                              style: AppTypography.bodyMedium,
-                            ),
-                          ],
-                        ),
-                        Text(
-                          dateRangeStr,
-                          style: AppTypography.titleMedium.copyWith(
-                            color: AppColors.moduleBudgeter,
-                            fontSize: 13,
-                          ),
-                        ),
-                      ],
+                  style: AppTypography.bodyLarge.copyWith(
+                    color: AppColors.textPrimary,
+                  ),
+                  decoration: InputDecoration(
+                    labelText: l10n.runwayDuration,
+                    floatingLabelBehavior: FloatingLabelBehavior.always,
+                    prefixIcon: const Icon(
+                      Icons.date_range_rounded,
+                      color: AppColors.moduleBudgeter,
                     ),
                   ),
                 ),

@@ -1,10 +1,9 @@
 import 'package:get_it/get_it.dart';
-import '../../features/image_compressor/data/datasources/image_processing_datasource.dart';
-import '../../features/image_compressor/data/repositories/image_compressor_repository_impl.dart';
-import '../../features/image_compressor/domain/repositories/image_compressor_repository.dart';
-import '../../features/image_compressor/domain/usecases/compile_pdf_usecase.dart';
-import '../../features/image_compressor/domain/usecases/compress_image_usecase.dart';
-import '../../features/image_compressor/presentation/bloc/image_compressor_bloc.dart';
+import '../../features/expense_tracker/data/datasources/expense_local_datasource.dart';
+import '../../features/expense_tracker/data/repositories/expense_repository_impl.dart';
+import '../../features/expense_tracker/domain/repositories/expense_repository.dart';
+import '../../features/expense_tracker/domain/usecases/expense_usecases.dart';
+import '../../features/expense_tracker/presentation/bloc/expense_bloc.dart';
 import '../../features/interval_timer/data/datasources/timer_local_datasource.dart';
 import '../../features/interval_timer/data/repositories/timer_repository_impl.dart';
 import '../../features/interval_timer/domain/repositories/timer_repository.dart';
@@ -140,20 +139,32 @@ Future<void> initInjection() async {
   );
 
   // -------------------------------------------------------------
-  // 6. Features - Phase 4: Image Compressor
+  // 6. Features - Phase 4: Expense Tracker & Money Manager
   // -------------------------------------------------------------
-  sl.registerLazySingleton<ImageProcessingDataSource>(
-    () => ImageProcessingDataSourceImpl(),
+  sl.registerLazySingleton<ExpenseLocalDataSource>(
+    () => ExpenseLocalDataSourceImpl(),
   );
-  sl.registerLazySingleton<ImageCompressorRepository>(
-    () => ImageCompressorRepositoryImpl(dataSource: sl()),
+  sl.registerLazySingleton<ExpenseRepository>(
+    () => ExpenseRepositoryImpl(localDataSource: sl()),
   );
-  sl.registerLazySingleton<CompressImageUseCase>(
-    () => CompressImageUseCase(sl()),
+  sl.registerLazySingleton<GetExpenseTransactionsUseCase>(
+    () => GetExpenseTransactionsUseCase(sl()),
   );
-  sl.registerLazySingleton<CompilePdfUseCase>(() => CompilePdfUseCase(sl()));
-  sl.registerFactory<ImageCompressorBloc>(
-    () => ImageCompressorBloc(compressImage: sl(), compilePdf: sl()),
+  sl.registerLazySingleton<SaveExpenseTransactionUseCase>(
+    () => SaveExpenseTransactionUseCase(sl()),
+  );
+  sl.registerLazySingleton<DeleteExpenseTransactionUseCase>(
+    () => DeleteExpenseTransactionUseCase(sl()),
+  );
+  sl.registerLazySingleton<GetExpenseSummaryUseCase>(
+    () => GetExpenseSummaryUseCase(sl()),
+  );
+  sl.registerFactory<ExpenseBloc>(
+    () => ExpenseBloc(
+      getTransactions: sl(),
+      saveTransaction: sl(),
+      deleteTransaction: sl(),
+    ),
   );
 
   // -------------------------------------------------------------

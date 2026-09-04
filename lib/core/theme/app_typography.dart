@@ -68,6 +68,14 @@ abstract class AppTypography {
     fontFamilyFallback: _fontFamilyFallbacks,
   );
 
+  static const TextStyle bodySmall = TextStyle(
+    fontSize: 12,
+    fontWeight: FontWeight.w400,
+    color: AppColors.textSecondary,
+    height: 1.35,
+    fontFamilyFallback: _fontFamilyFallbacks,
+  );
+
   static const TextStyle labelSmall = TextStyle(
     fontSize: 11,
     fontWeight: FontWeight.w600,

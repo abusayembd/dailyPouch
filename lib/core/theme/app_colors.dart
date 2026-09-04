@@ -28,7 +28,8 @@ abstract class AppColors {
   static const Color moduleSubscription = Color(0xFFE11D48); // Rose Crimson
   static const Color modulePriceCalc = Color(0xFFEA580C); // Tangerine Orange
   static const Color modulePantry = Color(0xFFD97706); // Honey Amber
-  static const Color moduleCompressor = Color(0xFFDC2626); // Red Coral
+  static const Color moduleCompressor = Color(0xFF0D9488); // Legacy alias
+  static const Color moduleExpenseTracker = Color(0xFF0D9488); // Deep Teal Cash Flow
   static const Color moduleBudgeter = Color(0xFF059669); // Emerald Cash
   static const Color moduleTimer = Color(0xFF7C3AED); // Deep Violet
 
@@ -62,9 +63,14 @@ abstract class AppColors {
     end: Alignment.bottomRight,
   );
 
-  // Card 4: Apricot / Warm Coral Pastel (Image Compressor & PDF)
+  // Card 4: Soft Mint / Aqua Cyan Pastel (Expense Tracker & Money Manager)
   static const LinearGradient pastelCompressorCard = LinearGradient(
-    colors: [Color(0xFFFFDBC8), Color(0xFFFFF0E4)],
+    colors: [Color(0xFFCCFBF1), Color(0xFFF0FDFA)],
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+  );
+  static const LinearGradient pastelExpenseTrackerCard = LinearGradient(
+    colors: [Color(0xFFCCFBF1), Color(0xFFF0FDFA)],
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,
   );
@@ -109,7 +115,12 @@ abstract class AppColors {
   );
 
   static const LinearGradient compressorGradient = LinearGradient(
-    colors: [Color(0xFFDC2626), Color(0xFFF87171)],
+    colors: [Color(0xFF0D9488), Color(0xFF2DD4BF)],
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+  );
+  static const LinearGradient expenseTrackerGradient = LinearGradient(
+    colors: [Color(0xFF0D9488), Color(0xFF2DD4BF)],
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,
   );

@@ -24,8 +24,9 @@ class Module3DIllustration extends StatelessWidget {
       case 'pantry_expiry':
         artwork = const _PantryMedicineArtwork3D();
         break;
+      case 'expense_tracker':
       case 'image_compressor':
-        artwork = const _ImageCompressorArtwork3D();
+        artwork = const _ExpenseTrackerArtwork3D();
         break;
       case 'micro_budgeter':
         artwork = const _MicroBudgeterArtwork3D();
@@ -632,10 +633,10 @@ class _PantryMedicineArtwork3D extends StatelessWidget {
 }
 
 // =============================================================
-// 4. IMAGE COMPRESSOR & PDF: 3D Photo Frame & Compact PDF Document Stack
+// 4. EXPENSE TRACKER: 3D Isometric Leather Wallet, Gold Coins & Cash Flow Trend
 // =============================================================
-class _ImageCompressorArtwork3D extends StatelessWidget {
-  const _ImageCompressorArtwork3D();
+class _ExpenseTrackerArtwork3D extends StatelessWidget {
+  const _ExpenseTrackerArtwork3D();
 
   @override
   Widget build(BuildContext context) {
@@ -645,22 +646,26 @@ class _ImageCompressorArtwork3D extends StatelessWidget {
         ..setEntry(3, 2, 0.002)
         ..rotateZ(-0.22)
         ..rotateX(0.38)
-        ..rotateY(-0.22),
+        ..rotateY(-0.24),
       child: Stack(
         alignment: Alignment.center,
         clipBehavior: Clip.none,
         children: [
-          // 3D Photo Image Canvas (Background)
+          // 3D Leather Wallet / Vault (Background)
           Positioned(
             left: 2,
             bottom: 4,
             child: Container(
-              width: 52,
-              height: 52,
+              width: 58,
+              height: 48,
               decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(10),
-                border: Border.all(color: const Color(0xFFE2E8F0), width: 1.5),
+                gradient: const LinearGradient(
+                  colors: [Color(0xFF0F766E), Color(0xFF115E59)],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                ),
+                borderRadius: BorderRadius.circular(12),
+                border: Border.all(color: const Color(0xFF2DD4BF), width: 1.2),
                 boxShadow: const [
                   BoxShadow(
                     color: Colors.black26,
@@ -669,83 +674,158 @@ class _ImageCompressorArtwork3D extends StatelessWidget {
                   ),
                 ],
               ),
-              padding: const EdgeInsets.all(4),
-              child: Container(
-                decoration: BoxDecoration(
-                  gradient: const LinearGradient(
-                    colors: [Color(0xFF38BDF8), Color(0xFF6366F1)],
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
+              child: Stack(
+                children: [
+                  // Wallet Flap Accent
+                  Positioned(
+                    top: 8,
+                    left: 0,
+                    right: 0,
+                    child: Container(
+                      height: 14,
+                      decoration: BoxDecoration(
+                        color: const Color(0xFF134E4A),
+                        border: Border(
+                          bottom: BorderSide(
+                            color: const Color(0xFF2DD4BF).withAlpha(120),
+                            width: 1,
+                          ),
+                        ),
+                      ),
+                    ),
                   ),
-                  borderRadius: BorderRadius.circular(6),
-                ),
-                child: const Center(
-                  child: Icon(Icons.image_rounded, color: Colors.white, size: 22),
-                ),
+                  // Gold Fastener Stud
+                  Positioned(
+                    top: 11,
+                    right: 8,
+                    child: Container(
+                      width: 8,
+                      height: 8,
+                      decoration: const BoxDecoration(
+                        gradient: LinearGradient(
+                          colors: [Color(0xFFFFE082), Color(0xFFFFB300)],
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
+                        ),
+                        shape: BoxShape.circle,
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black26,
+                            blurRadius: 2,
+                            offset: Offset(1, 1),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
           ),
-          // 3D Red PDF Sheet / Document (Foreground)
+
+          // Stack of 3D Gold Coins (Foreground Right)
           Positioned(
             right: 0,
-            bottom: 0,
-            child: Container(
-              width: 48,
-              height: 56,
-              decoration: BoxDecoration(
-                gradient: const LinearGradient(
-                  colors: [Color(0xFFEF4444), Color(0xFFB91C1C)],
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                ),
-                borderRadius: BorderRadius.circular(8),
-                boxShadow: [
-                  BoxShadow(
-                    color: const Color(0xFFEF4444).withAlpha(100),
-                    blurRadius: 10,
-                    offset: const Offset(2, 4),
-                  ),
-                ],
-              ),
-              padding: const EdgeInsets.all(5),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        'PDF',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 8.5,
-                          fontWeight: FontWeight.w900,
-                        ),
+            bottom: 2,
+            child: Stack(
+              clipBehavior: Clip.none,
+              children: [
+                // Coin 1 (Bottom)
+                Container(
+                  width: 26,
+                  height: 14,
+                  decoration: BoxDecoration(
+                    gradient: const LinearGradient(
+                      colors: [Color(0xFFF59E0B), Color(0xFFD97706)],
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                    ),
+                    borderRadius: BorderRadius.circular(13),
+                    boxShadow: const [
+                      BoxShadow(
+                        color: Colors.black26,
+                        blurRadius: 4,
+                        offset: Offset(0, 2),
                       ),
-                      Icon(Icons.compress_rounded, color: Colors.white, size: 7),
                     ],
                   ),
-                  // Compression Indicator Badge
-                  Container(
-                    width: double.infinity,
-                    padding: const EdgeInsets.symmetric(vertical: 2),
+                ),
+                // Coin 2 (Middle)
+                Positioned(
+                  top: -5,
+                  child: Container(
+                    width: 26,
+                    height: 14,
                     decoration: BoxDecoration(
-                      color: Colors.black38,
-                      borderRadius: BorderRadius.circular(4),
+                      gradient: const LinearGradient(
+                        colors: [Color(0xFFFBBF24), Color(0xFFF59E0B)],
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                      ),
+                      borderRadius: BorderRadius.circular(13),
+                    ),
+                  ),
+                ),
+                // Coin 3 (Top)
+                Positioned(
+                  top: -10,
+                  child: Container(
+                    width: 26,
+                    height: 14,
+                    decoration: BoxDecoration(
+                      gradient: const LinearGradient(
+                        colors: [Color(0xFFFDE68A), Color(0xFFFBBF24)],
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                      ),
+                      borderRadius: BorderRadius.circular(13),
+                      border: Border.all(color: Colors.white70, width: 0.8),
                     ),
                     child: const Center(
                       child: Text(
-                        '<100KB',
+                        '\$',
                         style: TextStyle(
-                          color: Color(0xFFFFD54F),
-                          fontSize: 6.5,
+                          color: Color(0xFF78350F),
+                          fontSize: 8,
                           fontWeight: FontWeight.w900,
                         ),
                       ),
                     ),
                   ),
+                ),
+              ],
+            ),
+          ),
+
+          // Floating Cash Flow Growth Badge (Top Right)
+          Positioned(
+            top: 2,
+            right: 6,
+            child: Container(
+              width: 22,
+              height: 22,
+              decoration: BoxDecoration(
+                gradient: const LinearGradient(
+                  colors: [Color(0xFF10B981), Color(0xFF059669)],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                ),
+                shape: BoxShape.circle,
+                border: Border.all(color: Colors.white, width: 1.5),
+                boxShadow: [
+                  BoxShadow(
+                    color: const Color(0xFF10B981).withAlpha(150),
+                    blurRadius: 8,
+                    offset: const Offset(0, 2),
+                  ),
                 ],
+              ),
+              child: const Center(
+                child: Icon(
+                  Icons.trending_up_rounded,
+                  color: Colors.white,
+                  size: 13,
+                ),
               ),
             ),
           ),

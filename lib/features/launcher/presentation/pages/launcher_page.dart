@@ -6,8 +6,8 @@ import 'package:dailypouch/core/theme/app_colors.dart';
 import 'package:dailypouch/core/theme/app_typography.dart';
 import 'package:dailypouch/core/widgets/custom_app_bar.dart';
 import 'package:dailypouch/core/widgets/responsive_layout.dart';
-import 'package:dailypouch/features/image_compressor/presentation/bloc/image_compressor_bloc.dart';
-import 'package:dailypouch/features/image_compressor/presentation/pages/image_compressor_page.dart';
+import 'package:dailypouch/features/expense_tracker/presentation/bloc/expense_bloc.dart';
+import 'package:dailypouch/features/expense_tracker/presentation/pages/expense_tracker_page.dart';
 import 'package:dailypouch/features/interval_timer/presentation/bloc/interval_timer_bloc.dart';
 import 'package:dailypouch/features/interval_timer/presentation/pages/interval_timer_page.dart';
 import 'package:dailypouch/features/launcher/domain/entities/utility_module.dart';
@@ -70,10 +70,11 @@ class _LauncherPageState extends State<LauncherPage> {
           child: const PantryExpiryPage(),
         );
         break;
+      case 'expense_tracker':
       case 'image_compressor':
-        destinationPage = BlocProvider<ImageCompressorBloc>(
-          create: (_) => di.sl<ImageCompressorBloc>(),
-          child: const ImageCompressorPage(),
+        destinationPage = BlocProvider<ExpenseBloc>(
+          create: (_) => di.sl<ExpenseBloc>(),
+          child: const ExpenseTrackerPage(),
         );
         break;
       case 'micro_budgeter':

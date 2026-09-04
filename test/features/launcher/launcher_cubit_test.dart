@@ -42,7 +42,7 @@ void main() {
       expect: () => [
         isA<LauncherState>()
             .having((s) => s.selectedCategory, 'category', ModuleCategory.finance)
-            .having((s) => s.filteredModules.length, 'filteredModules.length', 3), // Subscriptions, Price Calc, Micro Budget
+            .having((s) => s.filteredModules.length, 'filteredModules.length', 4), // Subscriptions, Price Calc, Expense Tracker, Micro Budget
       ],
     );
 

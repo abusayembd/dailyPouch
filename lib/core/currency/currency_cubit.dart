@@ -7,6 +7,8 @@ import 'currency_entity.dart';
 class CurrencyCubit extends Cubit<AppCurrency> {
   static const String _settingsFile = 'settings_store.json';
 
+  String get currentSymbol => state.symbol;
+
   CurrencyCubit([AppCurrency? initial]) : super(initial ?? kSupportedCurrencies.first) {
     _loadSavedCurrency();
   }

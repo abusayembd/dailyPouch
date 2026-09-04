@@ -80,8 +80,8 @@ class _AddEditSubscriptionDialogState extends State<AddEditSubscriptionDialog> {
       lastDate: DateTime.now().add(const Duration(days: 365 * 5)),
       builder: (context, child) {
         return Theme(
-          data: ThemeData.dark().copyWith(
-            colorScheme: const ColorScheme.dark(
+          data: ThemeData.light().copyWith(
+            colorScheme: const ColorScheme.light(
               primary: AppColors.moduleSubscription,
               surface: AppColors.surfaceCard,
             ),

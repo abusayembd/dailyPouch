@@ -1,7 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import '../../features/image_compressor/domain/entities/compression_preset.dart';
 import '../../features/pantry_expiry/domain/entities/pantry_item_entity.dart';
 import '../../features/price_calculator/domain/entities/comparison_item_entity.dart';
 import '../../features/subscription_tracker/domain/entities/subscription_entity.dart';
@@ -532,17 +531,18 @@ class AppLocalizations {
           'zh': '食品与药品管理',
           'ja': '食品庫＆常備薬管理',
         });
+      case 'expense_tracker':
       case 'image_compressor':
         return _localizedValue({
-          'en': 'IMG & PDF Compressor',
-          'bn': 'ছবি ও পিডিএফ কম্প্রেসর',
-          'es': 'Compresor de Imágenes y PDF',
-          'fr': 'Compresseur Image & PDF',
-          'de': 'Bild & PDF Kompressor',
-          'hi': 'फोटो व पीडीएफ कंप्रेसर',
-          'ar': 'ضغط الصور ومستندات PDF',
-          'zh': '图片与PDF压缩工具',
-          'ja': '画像＆PDF圧縮ツール',
+          'en': 'Daily Expense Tracker',
+          'bn': 'দৈনিক খরচ ট্র্যাকার',
+          'es': 'Control de Gastos',
+          'fr': 'Gestionnaire de Dépenses',
+          'de': 'Täglicher Ausgaben-Tracker',
+          'hi': 'दैनिक खर्च ट्रैकर',
+          'ar': 'متتبع النفقات اليومية',
+          'zh': '日常开支记账',
+          'ja': '毎日の支出管理',
         });
       case 'micro_budgeter':
         return _localizedValue({
@@ -611,17 +611,18 @@ class AppLocalizations {
           'zh': '分区收纳、保质期倒计时状态与临期预警通知',
           'ja': 'ゾーン別管理、鮮度バッジ、賞味期限切れ前の通知',
         });
+      case 'expense_tracker':
       case 'image_compressor':
         return _localizedValue({
-          'en': 'Target-size photo squisher, passport crop & PDF merge',
-          'bn': 'নির্দিষ্ট KB সাইজে ছবি কম্প্রেস, পাসপোর্ট ক্রপ ও পিডিএফ তৈরি',
-          'es': 'Comprime imágenes a KB exactos, recorte de pasaporte y PDF',
-          'fr': 'Compression en KB cibles, recadrage passeport et fusion PDF',
-          'de': 'Fotos auf Ziel-KB komprimieren, Passbild-Zuschnitt & PDF',
-          'hi': 'सटीक KB में फोटो कंप्रेस, पासपोर्ट साइज क्रॉप व पीडीएफ',
-          'ar': 'ضغط الصور لحجم محدد، قص صور الجوازات وتجميع PDF',
-          'zh': '按目标KB大小精准压缩图片、证件照裁剪及生成PDF',
-          'ja': '指定KBへの画像圧縮、パスポート写真切り抜き、PDF作成',
+          'en': 'All-in-one money manager to track spending & savings rate',
+          'bn': 'আয়-ব্যয় ট্র্যাকিং, সঞ্চয়ের হার ও আর্থিক নিয়ন্ত্রণ ব্যবস্থা',
+          'es': 'Gestor de dinero todo en uno para controlar gastos y ahorros',
+          'fr': 'Gestionnaire financier tout-en-un pour suivre dépenses et épargne',
+          'de': 'All-in-One Finanzmanager für Ausgaben, Sparen & Budgetkontrolle',
+          'hi': 'खर्च व आय ट्रैकिंग, बचत दर और वित्तीय प्रबंधन',
+          'ar': 'مدير مالي شامل لتتبع المصاريف ومعدل الادخار والتحكم المالي',
+          'zh': '一站式收支记账、储蓄率分析与个人财务管理',
+          'ja': '支出・収入の記録、貯蓄率分析、家計の総合管理',
         });
       case 'micro_budgeter':
         return _localizedValue({
@@ -680,17 +681,18 @@ class AppLocalizations {
           'zh': '储物',
           'ja': '保存食',
         });
+      case 'expense_tracker':
       case 'image_compressor':
         return _localizedValue({
-          'en': 'TOOLS & PDF',
-          'bn': 'টুলস ও পিডিএফ',
-          'es': 'HERRAMIENTAS',
-          'fr': 'OUTILS & PDF',
-          'de': 'WERKZEUGE',
-          'hi': 'টুल्स व পিডিএফ',
-          'ar': 'أدوات وPDF',
-          'zh': '工具与PDF',
-          'ja': 'ツール＆PDF',
+          'en': 'MONEY',
+          'bn': 'আর্থিক',
+          'es': 'FINANZAS',
+          'fr': 'ARGENT',
+          'de': 'FINANZEN',
+          'hi': 'धन',
+          'ar': 'المال',
+          'zh': '财务',
+          'ja': '家計',
         });
       case 'micro_budgeter':
         return _localizedValue({
@@ -2632,7 +2634,7 @@ class AppLocalizations {
 
   String get runwayDuration => _localizedValue({
         'en': 'Runway Duration',
-        'bn': 'রানওয়ের সময়সীমা',
+        'bn': 'নির্ধারিত সময়সীমা',
         'es': 'Duración del Presupuesto',
         'fr': 'Durée du Budget',
         'de': 'Laufzeit des Budgets',
@@ -3304,81 +3306,183 @@ class AppLocalizations {
     return name;
   }
 
-  String getLocalizedCompressionPresetTitle(CompressionPresetType type) {
-    switch (type) {
-      case CompressionPresetType.targetKb200:
-        return _localizedValue({
-          'en': 'Portal Standard (<200KB)',
-          'bn': 'পোর্টাল স্ট্যান্ডার্ড (<২০০KB)',
-          'es': 'Estándar Portal (<200KB)',
-          'fr': 'Standard Portail (<200KB)',
-          'de': 'Web-Standard (<200KB)',
-          'hi': 'पोर्टल मानक (<200KB)',
-          'ar': 'معيار البوابات (<200KB)',
-          'zh': '通用网申标准 (<200KB)',
-          'ja': 'ポータル標準 (<200KB)',
-        });
-      case CompressionPresetType.targetKb100:
-        return _localizedValue({
-          'en': 'Ultra Compact (<100KB)',
-          'bn': 'আল্ট্রা কমপ্যাক্ট (<১০০KB)',
-          'es': 'Ultra Compacto (<100KB)',
-          'fr': 'Ultra Compact (<100KB)',
-          'de': 'Ultra-Kompakt (<100KB)',
-          'hi': 'अल्ट्रा कॉम्पैक्ट (<100KB)',
-          'ar': 'حجم مضغوط جداً (<100KB)',
-          'zh': '极简极限压缩 (<100KB)',
-          'ja': '超コンパクト (<100KB)',
-        });
-      case CompressionPresetType.passportPhoto:
-        return _localizedValue({
-          'en': 'Passport 2x2 (600x600)',
-          'bn': 'পাসপোর্ট ২x২ (৬০০x৬০০)',
-          'es': 'Pasaporte 2x2 (600x600)',
-          'fr': 'Passeport 2x2 (600x600)',
-          'de': 'Passbild 2x2 (600x600)',
-          'hi': 'पासपोर्ट 2x2 (600x600)',
-          'ar': 'صورة جواز السفر (600x600)',
-          'zh': '标准证件照 (600x600)',
-          'ja': 'パスポート 2x2 (600x600)',
-        });
-      case CompressionPresetType.signatureStrip:
-        return _localizedValue({
-          'en': 'Signature Strip',
-          'bn': 'স্বাক্ষর / সিগনেচার',
-          'es': 'Firma Digital',
-          'fr': 'Bande de Signature',
-          'de': 'Unterschriften-Streifen',
-          'hi': 'हस्ताक्षर पट्टी',
-          'ar': 'شريط التوقيع',
-          'zh': '电子签名栏',
-          'ja': '署名・サイン用',
-        });
-      case CompressionPresetType.a4Document:
-        return _localizedValue({
-          'en': 'A4 Document Scan',
-          'bn': 'এ৪ ডকুমেন্ট স্ক্যান',
-          'es': 'Escaneo de Documento A4',
-          'fr': 'Document A4 Numérisé',
-          'de': 'A4 Dokumenten-Scan',
-          'hi': 'A4 दस्तावेज़ स्कैन',
-          'ar': 'مسح ضوئي لمستند A4',
-          'zh': 'A4文档高清扫描',
-          'ja': 'A4文書スキャン',
-        });
-      case CompressionPresetType.custom:
-        return _localizedValue({
-          'en': 'Custom Target',
-          'bn': 'কাস্টম সাইজ',
-          'es': 'Personalizado',
-          'fr': 'Personnalisé',
-          'de': 'Benutzerdefiniert',
-          'hi': 'कस्टम आकार',
-          'ar': 'حجم مخصص',
-          'zh': '自定义大小',
-          'ja': 'カスタム',
-        });
+
+  // -------------------------------------------------------------
+  // 4. Expense Tracker
+  // -------------------------------------------------------------
+  String get netCashFlow => _localizedValue({
+        'en': 'Net Cash Flow', 'bn': 'নিট ক্যাশ ফ্লো', 'es': 'Flujo de Caja Neto', 'fr': 'Flux de Trésorerie Net', 'de': 'Netto Cashflow', 'hi': 'शुद्ध नकद प्रवाह', 'ar': 'صافي التدفق النقدي', 'zh': '净现金流', 'ja': '純キャッシュフロー',
+      });
+
+  String get savingsProgress => _localizedValue({
+        'en': 'Savings Progress', 'bn': 'সঞ্চয়ের অগ্রগতি', 'es': 'Progreso de Ahorro', 'fr': 'Progression de l\'Épargne', 'de': 'Sparfortschritt', 'hi': 'बचत प्रगति', 'ar': 'تقدم الادخار', 'zh': '储蓄进度', 'ja': '貯蓄の進捗',
+      });
+
+  String savedPct(String pct) {
+    return _localizedValue({
+      'en': '$pct% Saved', 'bn': '$pct% সঞ্চিত', 'es': '$pct% Ahorrado', 'fr': '$pct% Économisé', 'de': '$pct% Gespart', 'hi': '$pct% बचाया', 'ar': '$pct% تم توفيره', 'zh': '已省 $pct%', 'ja': '$pct% 貯蓄',
+    });
+  }
+
+  String transactionEntries(int count) {
+    final c = formatNumber(count.toString());
+    if (count == 1) {
+      return _localizedValue({
+        'en': '$c entry', 'bn': '$c টি এন্ট্রি', 'es': '$c entrada', 'fr': '$c entrée', 'de': '$c Eintrag', 'hi': '$c प्रविष्टि', 'ar': 'إدخال $c', 'zh': '$c 笔记录', 'ja': '$c 件の記録',
+      });
     }
+    return _localizedValue({
+      'en': '$c entries', 'bn': '$c টি এন্ট্রি', 'es': '$c entradas', 'fr': '$c entrées', 'de': '$c Einträge', 'hi': '$c प्रविष्टियां', 'ar': '$c إدخالات', 'zh': '$c 笔记录', 'ja': '$c 件の記録',
+    });
+  }
+
+  String get periodToday => _localizedValue({
+        'en': 'Today', 'bn': 'আজ', 'es': 'Hoy', 'fr': 'Aujourd\'hui', 'de': 'Heute', 'hi': 'आज', 'ar': 'اليوم', 'zh': '今天', 'ja': '今日',
+      });
+
+  String get periodThisWeek => _localizedValue({
+        'en': 'This Week', 'bn': 'এই সপ্তাহ', 'es': 'Esta Semana', 'fr': 'Cette Semaine', 'de': 'Diese Woche', 'hi': 'इस हफ़्ते', 'ar': 'هذا الأسبوع', 'zh': '本周', 'ja': '今週',
+      });
+
+  String get periodThisMonth => _localizedValue({
+        'en': 'This Month', 'bn': 'এই মাস', 'es': 'Este Mes', 'fr': 'Ce Mois', 'de': 'Diesen Monat', 'hi': 'इस महीने', 'ar': 'هذا الشهر', 'zh': '本月', 'ja': '今月',
+      });
+
+  String get periodAllTime => _localizedValue({
+        'en': 'All Time', 'bn': 'সব সময়', 'es': 'Todo el Tiempo', 'fr': 'Tout le Temps', 'de': 'Gesamte Zeit', 'hi': 'हर समय', 'ar': 'كل الوقت', 'zh': '全部时间', 'ja': 'すべて',
+      });
+
+  String get addTransaction => _localizedValue({
+        'en': 'Add Transaction', 'bn': 'লেনদেন যোগ করুন', 'es': 'Agregar Transacción', 'fr': 'Ajouter une Transaction', 'de': 'Transaktion hinzufügen', 'hi': 'लेनदेन जोड़ें', 'ar': 'إضافة معاملة', 'zh': '添加记录', 'ja': '記録を追加',
+      });
+
+  String get editTransaction => _localizedValue({
+        'en': 'Edit Transaction', 'bn': 'লেনদেন সম্পাদনা করুন', 'es': 'Editar Transacción', 'fr': 'Modifier la Transaction', 'de': 'Transaktion bearbeiten', 'hi': 'लेनदेन संपादित करें', 'ar': 'تعديل المعاملة', 'zh': '编辑记录', 'ja': '記録を編集',
+      });
+
+  String get retry => _localizedValue({
+        'en': 'Retry', 'bn': 'পুনরায় চেষ্টা করুন', 'es': 'Reintentar', 'fr': 'Réessayer', 'de': 'Wiederholen', 'hi': 'पुनः प्रयास करें', 'ar': 'إعادة المحاولة', 'zh': '重试', 'ja': '再試行',
+      });
+
+  String get dateTimeLabel => _localizedValue({
+        'en': 'Date & Time', 'bn': 'তারিখ ও সময়', 'es': 'Fecha y Hora', 'fr': 'Date & Heure', 'de': 'Datum & Zeit', 'hi': 'तारीख व समय', 'ar': 'التاريخ والوقت', 'zh': '日期与时间', 'ja': '日時',
+      });
+
+  String get saveLabel => _localizedValue({
+        'en': 'Save', 'bn': 'সেভ করুন', 'es': 'Guardar', 'fr': 'Enregistrer', 'de': 'Speichern', 'hi': 'सहेजें', 'ar': 'حفظ', 'zh': '保存', 'ja': '保存',
+      });
+
+  String get cancelLabel => _localizedValue({
+        'en': 'Cancel', 'bn': 'বাতিল', 'es': 'Cancelar', 'fr': 'Annuler', 'de': 'Abbrechen', 'hi': 'रद्द करें', 'ar': 'إلغاء', 'zh': '取消', 'ja': 'キャンセル',
+      });
+
+  String get recentTransactions => _localizedValue({
+        'en': 'Recent Transactions', 'bn': 'সাম্প্রতিক লেনদেন', 'es': 'Transacciones Recientes', 'fr': 'Transactions Récentes', 'de': 'Letzte Transaktionen', 'hi': 'हाल के लेनदेन', 'ar': 'المعاملات الأخيرة', 'zh': '最近记录', 'ja': '最近の記録',
+      });
+
+  String get noTransactions => _localizedValue({
+        'en': 'No transactions for this period.', 'bn': 'এই সময়ে কোনো লেনদেন নেই।', 'es': 'No hay transacciones para este período.', 'fr': 'Aucune transaction pour cette période.', 'de': 'Keine Transaktionen für diesen Zeitraum.', 'hi': 'इस अवधि के लिए कोई लेनदेन नहीं।', 'ar': 'لا توجد معاملات لهذه الفترة.', 'zh': '该期间无交易记录。', 'ja': 'この期間の記録はありません。',
+      });
+
+  String get incomeLabel => _localizedValue({
+        'en': 'Income', 'bn': 'আয়', 'es': 'Ingresos', 'fr': 'Revenu', 'de': 'Einkommen', 'hi': 'आय', 'ar': 'الدخل', 'zh': '收入', 'ja': '収入',
+      });
+
+  String get expenseLabel => _localizedValue({
+        'en': 'Expense', 'bn': 'ব্যয়', 'es': 'Gastos', 'fr': 'Dépense', 'de': 'Ausgabe', 'hi': 'खर्च', 'ar': 'المصروف', 'zh': '支出', 'ja': '支出',
+      });
+      
+  String get incomeUpper => _localizedValue({
+        'en': 'INCOME', 'bn': 'আয়', 'es': 'INGRESOS', 'fr': 'REVENU', 'de': 'EINKOMMEN', 'hi': 'आय', 'ar': 'الدخل', 'zh': '收入', 'ja': '収入',
+      });
+
+  String get expenseUpper => _localizedValue({
+        'en': 'EXPENSE', 'bn': 'ব্যয়', 'es': 'GASTOS', 'fr': 'DÉPENSE', 'de': 'AUSGABE', 'hi': 'खर्च', 'ar': 'المصروف', 'zh': '支出', 'ja': '支出',
+      });
+
+  String get spendingBreakdown => _localizedValue({
+        'en': 'Spending Breakdown', 'bn': 'খরচের বিবরণ', 'es': 'Desglose de Gastos', 'fr': 'Répartition des Dépenses', 'de': 'Ausgabenaufschlüsselung', 'hi': 'खर्च का विवरण', 'ar': 'تفصيل النفقات', 'zh': '支出明细', 'ja': '支出の内訳',
+      });
+
+  String get noDataForPeriod => _localizedValue({
+        'en': 'No data for this period', 'bn': 'এই সময়ের জন্য কোনো ডেটা নেই', 'es': 'No hay datos para este período', 'fr': 'Aucune donnée pour cette période', 'de': 'Keine Daten für diesen Zeitraum', 'hi': 'इस अवधि के लिए कोई डेटा नहीं', 'ar': 'لا توجد بيانات لهذه الفترة', 'zh': '该期间无数据', 'ja': 'この期間のデータはありません',
+      });
+
+  String get amountCannotBeZero => _localizedValue({
+        'en': 'Amount must be greater than 0', 'bn': 'পরিমাণ ০ এর বেশি হতে হবে', 'es': 'La cantidad debe ser mayor a 0', 'fr': 'Le montant doit être supérieur à 0', 'de': 'Der Betrag muss größer als 0 sein', 'hi': 'राशि 0 से अधिक होनी चाहिए', 'ar': 'يجب أن يكون المبلغ أكبر من 0', 'zh': '金额必须大于 0', 'ja': '金額は0より大きくする必要があります',
+      });
+
+  String get titleDescriptionLabel => _localizedValue({
+        'en': 'TITLE / DESCRIPTION', 'bn': 'শিরোনাম / বিবরণ', 'es': 'TÍTULO / DESCRIPCIÓN', 'fr': 'TITRE / DESCRIPTION', 'de': 'TITEL / BESCHREIBUNG', 'hi': 'शीर्षक / विवरण', 'ar': 'العنوان / الوصف', 'zh': '标题 / 描述', 'ja': 'タイトル / 説明',
+      });
+
+  String get paymentMethodLabel => _localizedValue({
+        'en': 'PAYMENT METHOD', 'bn': 'পেমেন্ট মেথড', 'es': 'MÉTODO DE PAGO', 'fr': 'MÉTHODE DE PAIEMENT', 'de': 'ZAHLUNGSMETHODE', 'hi': 'भुगतान विधि', 'ar': 'طريقة الدفع', 'zh': '支付方式', 'ja': '支払い方法',
+      });
+
+  String get dateLabel => _localizedValue({
+        'en': 'DATE', 'bn': 'তারিখ', 'es': 'FECHA', 'fr': 'DATE', 'de': 'DATUM', 'hi': 'तारीख', 'ar': 'التاريخ', 'zh': '日期', 'ja': '日付',
+      });
+
+  String get notesOptionalLabel => _localizedValue({
+        'en': 'NOTES (OPTIONAL)', 'bn': 'নোট (ঐচ্ছিক)', 'es': 'NOTAS (OPCIONAL)', 'fr': 'NOTES (FACULTATIF)', 'de': 'NOTIZEN (OPTIONAL)', 'hi': 'नोट (वैकल्पिक)', 'ar': 'ملاحظات (اختياري)', 'zh': '备注 (选填)', 'ja': 'メモ (任意)',
+      });
+
+  String get updateTransaction => _localizedValue({
+        'en': 'Update Transaction', 'bn': 'লেনদেন আপডেট করুন', 'es': 'Actualizar Transacción', 'fr': 'Mettre à jour la transaction', 'de': 'Transaktion aktualisieren', 'hi': 'लेनदेन अपडेट करें', 'ar': 'تحديث المعاملة', 'zh': '更新记录', 'ja': '記録を更新',
+      });
+
+  String get saveTransaction => _localizedValue({
+        'en': 'Save Transaction', 'bn': 'লেনদেন সেভ করুন', 'es': 'Guardar Transacción', 'fr': 'Enregistrer la transaction', 'de': 'Transaktion speichern', 'hi': 'लेनदेन सहेजें', 'ar': 'حفظ المعاملة', 'zh': '保存记录', 'ja': '記録を保存',
+      });
+
+  String get noTransactionsDesc => _localizedValue({
+        'en': 'Track your daily spending and income to see your savings rate and category insights.',
+        'bn': 'আপনার দৈনিক খরচ এবং আয় ট্র্যাক করুন সঞ্চয়ের হার এবং ক্যাটাগরি ইনসাইট দেখতে।',
+        'es': 'Registra tus gastos e ingresos diarios para ver tu tasa de ahorro.',
+        'fr': 'Suivez vos dépenses et revenus pour voir vos statistiques.',
+        'de': 'Erfassen Sie Ausgaben und Einnahmen für Einblicke in Ihre Sparquote.',
+        'hi': 'अपनी बचत दर और श्रेणी अंतर्दृष्टि देखने के लिए दैनिक खर्च और आय को ट्रैक करें।',
+        'ar': 'تتبع إنفاقك ودخلك اليومي لرؤية معدل مدخراتك.',
+        'zh': '记录您的日常收支，查看储蓄率与分类统计。',
+        'ja': '日々の支出と収入を記録して、貯蓄率やカテゴリ分析を確認しましょう。',
+      });
+
+  String getLocalizedExpenseCategoryName(String name) {
+    if (languageCode == 'en') return name;
+    switch (name.trim()) {
+      case 'Food & Dining': return _localizedValue({'bn': 'খাবার ও ডাইনিং', 'es': 'Comida y Cena', 'fr': 'Alimentation', 'de': 'Essen & Trinken', 'hi': 'खाना व डाइनिंग', 'ar': 'طعام ومطاعم', 'zh': '餐饮', 'ja': '外食'});
+      case 'Groceries': return _localizedValue({'bn': 'মুদি', 'es': 'Supermercado', 'fr': 'Épicerie', 'de': 'Lebensmittel', 'hi': 'किराना', 'ar': 'بقالة', 'zh': '买菜', 'ja': '食料品'});
+      case 'Shopping': return _localizedValue({'bn': 'কেনাকাটা', 'es': 'Compras', 'fr': 'Achats', 'de': 'Einkaufen', 'hi': 'खरीदारी', 'ar': 'تسوق', 'zh': '购物', 'ja': 'ショッピング'});
+      case 'Housing & Rent': return _localizedValue({'bn': 'বাসস্থান ও ভাড়া', 'es': 'Vivienda y Renta', 'fr': 'Logement', 'de': 'Wohnen & Miete', 'hi': 'आवास व किराया', 'ar': 'سكن وإيجار', 'zh': '住房与租金', 'ja': '住居費'});
+      case 'Transport': return _localizedValue({'bn': 'যাতায়াত', 'es': 'Transporte', 'fr': 'Transports', 'de': 'Verkehrsmittel', 'hi': 'परिवहन', 'ar': 'مواصلات', 'zh': '交通出行', 'ja': '交通費'});
+      case 'Bills & Utilities': return _localizedValue({'bn': 'বিল ও ইউটিলিটি', 'es': 'Facturas y Servicios', 'fr': 'Factures', 'de': 'Rechnungen', 'hi': 'बिल व यूटिलिटी', 'ar': 'فواتير ومرافق', 'zh': '水电煤网', 'ja': '光熱費'});
+      case 'Health & Medical': return _localizedValue({'bn': 'স্বাস্থ্য ও চিকিৎসা', 'es': 'Salud y Medicina', 'fr': 'Santé', 'de': 'Gesundheit', 'hi': 'स्वास्थ्य व चिकित्सा', 'ar': 'صحة وطب', 'zh': '医疗健康', 'ja': '医療費'});
+      case 'Entertainment': return _localizedValue({'bn': 'বিনোদন', 'es': 'Entretenimiento', 'fr': 'Divertissement', 'de': 'Unterhaltung', 'hi': 'मनोरंजन', 'ar': 'ترفيه', 'zh': '休闲娱乐', 'ja': 'エンタメ'});
+      case 'Education': return _localizedValue({'bn': 'শিক্ষা', 'es': 'Educación', 'fr': 'Éducation', 'de': 'Bildung', 'hi': 'शिक्षा', 'ar': 'تعليم', 'zh': '教育', 'ja': '教育費'});
+      case 'Personal Care': return _localizedValue({'bn': 'ব্যক্তিগত যত্ন', 'es': 'Cuidado Personal', 'fr': 'Soins Personnels', 'de': 'Körperpflege', 'hi': 'निजी देखभाल', 'ar': 'عناية شخصية', 'zh': '个人护理', 'ja': '美容・理容'});
+      case 'Other Expense': return _localizedValue({'bn': 'অন্যান্য ব্যয়', 'es': 'Otros Gastos', 'fr': 'Autre Dépense', 'de': 'Sonstige Ausgaben', 'hi': 'अन्य खर्च', 'ar': 'مصروفات أخرى', 'zh': '其他支出', 'ja': 'その他の支出'});
+      case 'Salary': return _localizedValue({'bn': 'বেতন', 'es': 'Salario', 'fr': 'Salaire', 'de': 'Gehalt', 'hi': 'वेतन', 'ar': 'راتب', 'zh': '工资', 'ja': '給与'});
+      case 'Freelance': return _localizedValue({'bn': 'ফ্রিল্যান্স', 'es': 'Freelance', 'fr': 'Freelance', 'de': 'Freiberuflich', 'hi': 'फ्रीलांस', 'ar': 'عمل حر', 'zh': '兼职/外包', 'ja': 'フリーランス'});
+      case 'Business': return _localizedValue({'bn': 'ব্যবসা', 'es': 'Negocios', 'fr': 'Affaires', 'de': 'Geschäft', 'hi': 'व्यापार', 'ar': 'أعمال', 'zh': '商业', 'ja': '事業'});
+      case 'Investment': return _localizedValue({'bn': 'বিনিয়োগ', 'es': 'Inversiones', 'fr': 'Investissement', 'de': 'Investition', 'hi': 'निवेश', 'ar': 'استثمار', 'zh': '投资', 'ja': '投資'});
+      case 'Gifts & Awards': return _localizedValue({'bn': 'উপহার ও পুরস্কার', 'es': 'Regalos y Premios', 'fr': 'Cadeaux', 'de': 'Geschenke', 'hi': 'उपहार व पुरस्कार', 'ar': 'هدايا وجوائز', 'zh': '奖金/礼物', 'ja': 'ギフト・賞与'});
+      case 'Other Income': return _localizedValue({'bn': 'অন্যান্য আয়', 'es': 'Otros Ingresos', 'fr': 'Autre Revenu', 'de': 'Sonstiges Einkommen', 'hi': 'अन्य आय', 'ar': 'دخل آخر', 'zh': '其他收入', 'ja': 'その他の収入'});
+    }
+    return name;
+  }
+
+  String getLocalizedPaymentMethodName(String name) {
+    if (languageCode == 'en') return name;
+    switch (name.trim()) {
+      case 'Cash': return _localizedValue({'bn': 'নগদ', 'es': 'Efectivo', 'fr': 'Espèces', 'de': 'Bargeld', 'hi': 'नकद', 'ar': 'نقدي', 'zh': '现金', 'ja': '現金'});
+      case 'Credit Card': return _localizedValue({'bn': 'ক্রেডিট কার্ড', 'es': 'Tarjeta de Crédito', 'fr': 'Carte de Crédit', 'de': 'Kreditkarte', 'hi': 'क्रेडिट कार्ड', 'ar': 'بطاقة ائتمان', 'zh': '信用卡', 'ja': 'クレジットカード'});
+      case 'Debit Card': return _localizedValue({'bn': 'ডেবিট কার্ড', 'es': 'Tarjeta de Débito', 'fr': 'Carte de Débit', 'de': 'Debitkarte', 'hi': 'डेबिट कार्ड', 'ar': 'بطاقة خصم', 'zh': '借记卡', 'ja': 'デビットカード'});
+      case 'Bank Transfer': return _localizedValue({'bn': 'ব্যাংক ট্রান্সফার', 'es': 'Transferencia Bancaria', 'fr': 'Virement Bancaire', 'de': 'Banküberweisung', 'hi': 'बैंक ट्रांसफर', 'ar': 'تحويل بنكي', 'zh': '银行转账', 'ja': '銀行振込'});
+      case 'Mobile Wallet': return _localizedValue({'bn': 'মোবাইল ওয়ালেট', 'es': 'Billetera Móvil', 'fr': 'Portefeuille Mobile', 'de': 'Mobile Wallet', 'hi': 'मोबाइल वॉलेट', 'ar': 'محفظة جوال', 'zh': '移动支付', 'ja': 'モバイル決済'});
+      case 'Other': return _localizedValue({'bn': 'অন্যান্য', 'es': 'Otro', 'fr': 'Autre', 'de': 'Andere', 'hi': 'अन्य', 'ar': 'أخرى', 'zh': '其他', 'ja': 'その他'});
+    }
+    return name;
   }
 
   // Internal helper for localized map lookup with English fallback

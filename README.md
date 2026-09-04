@@ -39,9 +39,9 @@ DailyPouch operates on a modular arcade launcher featuring six independent utili
    - Track household food items and medication shelf life across 4 storage zones (Fridge, Freezer, Pantry, Medicine Cabinet).
    - Automated color-coded freshness badges (Safe, Warning ≤5 days, Expired) with one-tap consumption logging.
 
-4. **[IMG & PDF Compressor](docs/PROJECT_MAP.md#4-batch-image-resizer--document-compressor)** (`lib/features/image_compressor/`)
-   - In-memory target-size image compression (Portal `<200 KB`, Ultra-Tiny `<100 KB`, Signature strip, A4 proportions).
-   - Auto-crop standard 2x2 passport/ID photos and compile multiple images into compressed PDF documents.
+4. **[Daily Expense Tracker](docs/PROJECT_MAP.md#4-all-in-one-expense-tracker--money-manager)** (`lib/features/expense_tracker/`)
+   - All-in-one money manager to track spending, save money, and take control of personal finance.
+   - Income & expense logging, net cash flow gauge, savings rate calculator, visual category distribution, and multi-period filters.
 
 5. **[Single-Goal Budgeter](docs/PROJECT_MAP.md#5-single-goal-micro-budgeter)** (`lib/features/micro_budgeter/`)
    - Manage dedicated envelope funds (vacations, parties, weekend dining) without complex accounting.
@@ -61,7 +61,6 @@ DailyPouch follows a strict **Clean Architecture (Feature-First)** pattern:
 * **State Management:** [`flutter_bloc`](https://pub.dev/packages/flutter_bloc) (BLoC & Cubit)
 * **Dependency Injection:** [`get_it`](https://pub.dev/packages/get_it)
 * **Functional Error Handling:** [`fpdart`](https://pub.dev/packages/fpdart) (`Either<Failure, T>`)
-* **Image & PDF Processing:** [`image`](https://pub.dev/packages/image) and [`pdf`](https://pub.dev/packages/pdf)
 * **Display WakeLock:** [`wakelock_plus`](https://pub.dev/packages/wakelock_plus)
 * **Audio & Haptics:** [`audioplayers`](https://pub.dev/packages/audioplayers)
 * **Testing:** [`mocktail`](https://pub.dev/packages/mocktail) and [`bloc_test`](https://pub.dev/packages/bloc_test)
@@ -86,7 +85,7 @@ lib/
 │   ├── subscription_tracker/   # Subscriptions & cash-burn tracker
 │   ├── price_calculator/       # Unit price comparisons & grocery savings finder
 │   ├── pantry_expiry/          # Zone tracking & freshness warnings
-│   ├── image_compressor/       # In-memory photo compressor, passport crop & PDF compiler
+│   ├── expense_tracker/        # All-in-one money manager, savings rate & category insights
 │   ├── micro_budgeter/         # Envelopes, daily runway gauge & quick spend logger
 │   └── interval_timer/         # HIIT, Tabata, boxing rounds & workout engine
 └── main.dart                   # Root widget DailyPouchApp & MultiBlocProvider

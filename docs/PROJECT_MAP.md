@@ -180,25 +180,28 @@ e:\nestomi\
 │       │           ├── pantry_item_tile.dart            # Item card with quick consume check
 │       │           └── add_edit_pantry_item_dialog.dart # Modal with quick grocery presets
 │       │
-│       ├── image_compressor\                            # MODULE 4: IMG & PDF COMPRESSOR
+│       ├── expense_tracker\                             # MODULE 4: ALL-IN-ONE EXPENSE TRACKER
 │       │   ├── domain\
-│       │   │   ├── entities\compression_preset.dart     # Presets (Portal <200KB, Passport 2x2, Signature, A4)
-│       │   │   ├── repositories\image_compressor_repository.dart
-│       │   │   └── usecases\
-│       │   │       ├── compress_image_usecase.dart
-│       │   │       └── compile_pdf_usecase.dart
+│       │   │   ├── entities\
+│       │   │   │   ├── expense_category.dart            # Expense & income categories with icons/colors
+│       │   │   │   └── expense_transaction.dart         # ExpenseTransaction, TimePeriodFilter, FinancialSummary
+│       │   │   ├── repositories\expense_repository.dart
+│       │   │   └── usecases\expense_usecases.dart       # Get, Save, Delete, GetSummary usecases
 │       │   ├── data\
-│       │   │   ├── datasources\image_processing_datasource.dart # In-memory image/pdf processor
-│       │   │   └── repositories\image_compressor_repository_impl.dart
+│       │   │   ├── datasources\expense_local_datasource.dart # Persistent JSON store (expenses_store.json)
+│       │   │   ├── models\expense_transaction_model.dart
+│       │   │   └── repositories\expense_repository_impl.dart
 │       │   └── presentation\
 │       │       ├── bloc\
-│       │       │   ├── image_compressor_event.dart
-│       │       │   ├── image_compressor_state.dart
-│       │       │   └── image_compressor_bloc.dart
-│       │       ├── pages\image_compressor_page.dart
+│       │       │   ├── expense_event.dart
+│       │       │   ├── expense_state.dart
+│       │       │   └── expense_bloc.dart
+│       │       ├── pages\expense_tracker_page.dart      # Main dashboard with period filters & search
 │       │       └── widgets\
-│       │           ├── compression_preview_card.dart    # Side-by-side KB & dimensions diff
-│       │           └── preset_selector_chip_group.dart  # Chip selector for compression types
+│       │           ├── spending_summary_card.dart       # Net balance, income/expense split, savings rate
+│       │           ├── category_breakdown_view.dart     # Category spending progress distribution
+│       │           ├── transaction_list_tile.dart       # Feed tile with quick actions
+│       │           └── add_edit_transaction_sheet.dart  # Modal for logging income/expenses
 │       │
 │       ├── micro_budgeter\                              # MODULE 5: SINGLE-GOAL BUDGETER
 │       │   ├── domain\
@@ -267,10 +270,11 @@ e:\nestomi\
         │   ├── domain\expiry_calculation_test.dart
         │   ├── presentation\bloc\pantry_bloc_test.dart
         │   └── presentation\pantry_localization_test.dart
-        ├── image_compressor\
-        │   ├── domain\image_compression_logic_test.dart
-        │   ├── presentation\bloc\image_compressor_bloc_test.dart
-        │   └── presentation\compressor_localization_test.dart
+        ├── expense_tracker\
+        │   ├── domain\expense_calculation_test.dart
+        │   ├── data\expense_transaction_model_test.dart
+        │   ├── presentation\bloc\expense_bloc_test.dart
+        │   └── presentation\expense_tracker_localization_test.dart
         ├── micro_budgeter\
         │   ├── domain\runway_calculation_test.dart
         │   ├── presentation\bloc\budget_bloc_test.dart
@@ -462,10 +466,10 @@ flutter test
 | `test/features/price_calculator/presentation/price_calculator_localization_test.dart` | 3 | Localized best deal banners & unit pricing labels |
 | `test/features/pantry_expiry/domain/expiry_calculation_test.dart` | 4 | Safe, Warning (<=5 days), and Expired status assertions |
 | `test/features/pantry_expiry/presentation/bloc/pantry_bloc_test.dart` | 4 | Load items, add item, toggle consumed, error states |
-| `test/features/pantry_expiry/presentation/pantry_localization_test.dart` | 3 | Storage zone titles and freshness badge translations |
-| `test/features/image_compressor/domain/image_compression_logic_test.dart` | 3 | Passport 600x600 crop, <100KB compression, PDF compilation |
-| `test/features/image_compressor/presentation/bloc/image_compressor_bloc_test.dart` | 4 | Preset selection, slider updates, processing states |
-| `test/features/image_compressor/presentation/compressor_localization_test.dart` | 3 | Preset chips, dimension diffs, and Bengali compression results |
+| `test/features/expense_tracker/domain/expense_calculation_test.dart` | 3 | Net cash flow, surplus/deficit, savings rate percentage & category sums |
+| `test/features/expense_tracker/data/expense_transaction_model_test.dart` | 3 | JSON serialization, deserialization & entity conversions |
+| `test/features/expense_tracker/presentation/bloc/expense_bloc_test.dart` | 4 | Load, save, delete, period filters & live transaction search |
+| `test/features/expense_tracker/presentation/expense_tracker_localization_test.dart` | 3 | Multi-language translation across 9 supported languages |
 | `test/features/micro_budgeter/domain/runway_calculation_test.dart` | 4 | Daily runway allowance, burn progress, overbudget edge cases |
 | `test/features/micro_budgeter/presentation/bloc/budget_bloc_test.dart` | 4 | Load envelopes, add transactions, delete envelope |
 | `test/features/micro_budgeter/presentation/budget_localization_test.dart` | 3 | Daily allowance gauge and transaction labels |

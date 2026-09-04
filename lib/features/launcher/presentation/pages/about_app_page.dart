@@ -77,12 +77,6 @@ class AboutAppPage extends StatelessWidget {
             const SizedBox(height: 24),
 
             // -------------------------------------------------------------
-            // PRIVACY & OFFLINE ARCHITECTURE
-            // -------------------------------------------------------------
-            _buildPrivacyGuaranteeCard(context),
-            const SizedBox(height: 28),
-
-            // -------------------------------------------------------------
             // 6 OFFLINE TOOLS SHOWCASE
             // -------------------------------------------------------------
             Row(
@@ -136,13 +130,13 @@ class AboutAppPage extends StatelessWidget {
             const SizedBox(height: 10),
 
             _buildFeatureCard(
-              icon: Icons.photo_size_select_small_rounded,
-              color: AppColors.moduleCompressor,
-              gradient: AppColors.compressorGradient,
-              tag: 'IMAGE & PDF TOOLS',
-              title: l10n.compressorTitle,
+              icon: Icons.account_balance_wallet_rounded,
+              color: AppColors.moduleExpenseTracker,
+              gradient: AppColors.expenseTrackerGradient,
+              tag: 'EXPENSE & CASH FLOW',
+              title: l10n.getModuleTitle('expense_tracker'),
               description:
-                  'Quickly prepare uploads for strict portal limits. Compress photos down to exact target KB sizes, auto-crop standard 2x2 passport/ID photos, and compile multiple images into PDF.',
+                  'All-in-one personal money manager. Log daily income and expenses across categories, monitor net cash flow, track your savings rate progress, and analyze spending breakdowns offline.',
             ),
             const SizedBox(height: 10),
 
@@ -272,72 +266,6 @@ class AboutAppPage extends StatelessWidget {
                   ),
                 ),
               ],
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildPrivacyGuaranteeCard(BuildContext context) {
-    final l10n = context.l10n;
-
-    return Container(
-      width: double.infinity,
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          colors: [
-            AppColors.modulePantry.withAlpha(20),
-            AppColors.surfaceCard,
-          ],
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-        ),
-        borderRadius: BorderRadius.circular(16),
-        border: Border.all(
-          color: AppColors.modulePantry.withAlpha(70),
-          width: 1.2,
-        ),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            children: [
-              Container(
-                padding: const EdgeInsets.all(6),
-                decoration: BoxDecoration(
-                  color: AppColors.modulePantry.withAlpha(30),
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                child: const Icon(
-                  Icons.shield_outlined,
-                  size: 16,
-                  color: AppColors.modulePantry,
-                ),
-              ),
-              const SizedBox(width: 8),
-              Expanded(
-                child: Text(
-                  l10n.privacyGuaranteeTitle,
-                  style: AppTypography.badgeText.copyWith(
-                    color: AppColors.modulePantry,
-                    fontSize: 11,
-                    fontWeight: FontWeight.w800,
-                    letterSpacing: 0.6,
-                  ),
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(height: 8),
-          Text(
-            l10n.privacyGuaranteeDesc,
-            style: AppTypography.bodyMedium.copyWith(
-              color: AppColors.textSecondary,
-              fontSize: 12.5,
-              height: 1.45,
             ),
           ),
         ],

@@ -25,8 +25,9 @@ class ArcadeModuleCard extends StatelessWidget {
         return AppColors.pastelPriceCalcCard;
       case 'pantry_expiry':
         return AppColors.pastelPantryCard;
+      case 'expense_tracker':
       case 'image_compressor':
-        return AppColors.pastelCompressorCard;
+        return AppColors.pastelExpenseTrackerCard;
       case 'micro_budgeter':
         return AppColors.pastelBudgeterCard;
       case 'interval_timer':

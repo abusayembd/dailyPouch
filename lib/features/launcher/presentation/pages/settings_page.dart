@@ -23,7 +23,6 @@ class SettingsPage extends StatelessWidget {
     return Scaffold(
       appBar: CustomAppBar(
         title: l10n.tabSettings,
-        subtitle: l10n.preferences,
         accentColor: AppColors.primary,
       ),
       body: SingleChildScrollView(
@@ -36,19 +35,11 @@ class SettingsPage extends StatelessWidget {
             // HERO APP BRAND CARD
             // -------------------------------------------------------------
             _buildAppBrandCard(context),
-            const SizedBox(height: 24),
+            const SizedBox(height: 16),
 
             // -------------------------------------------------------------
-            // SECTION 1: PREFERENCES (CURRENCY & LANGUAGE)
+            // PREFERENCES (CURRENCY & LANGUAGE)
             // -------------------------------------------------------------
-            _buildSectionHeader(
-              icon: Icons.tune_rounded,
-              title: l10n.preferences,
-              accentColor: AppColors.primary,
-            ),
-            const SizedBox(height: 12),
-
-            // Currency Setting Card
             _buildPreferenceCard(
               icon: Icons.payments_outlined,
               iconColor: AppColors.primaryLight,
@@ -68,7 +59,6 @@ class SettingsPage extends StatelessWidget {
             ),
             const SizedBox(height: 12),
 
-            // Language Setting Card
             _buildPreferenceCard(
               icon: Icons.language_rounded,
               iconColor: AppColors.moduleCompressor,
@@ -86,19 +76,11 @@ class SettingsPage extends StatelessWidget {
                 },
               ),
             ),
-            const SizedBox(height: 28),
+            const SizedBox(height: 14),
 
             // -------------------------------------------------------------
-            // SECTION 2: INFORMATION & ABOUT APP
+            // DEDICATED ABOUT APP NAVIGATION TILE
             // -------------------------------------------------------------
-            _buildSectionHeader(
-              icon: Icons.info_outline_rounded,
-              title: l10n.overviewAndDetails,
-              accentColor: AppColors.modulePriceCalc,
-            ),
-            const SizedBox(height: 12),
-
-            // Dedicated About App Navigation Tile
             _buildNavigationTile(
               context: context,
               icon: Icons.auto_stories_rounded,
@@ -112,12 +94,6 @@ class SettingsPage extends StatelessWidget {
                 );
               },
             ),
-            const SizedBox(height: 16),
-
-            // -------------------------------------------------------------
-            // SECTION 3: PRIVACY & OFFLINE GUARANTEE
-            // -------------------------------------------------------------
-            _buildPrivacyGuaranteeCard(context),
           ],
         ),
       ),
@@ -228,28 +204,6 @@ class SettingsPage extends StatelessWidget {
           ),
         ],
       ),
-    );
-  }
-
-  Widget _buildSectionHeader({
-    required IconData icon,
-    required String title,
-    required Color accentColor,
-  }) {
-    return Row(
-      children: [
-        Icon(icon, size: 16, color: accentColor),
-        const SizedBox(width: 6),
-        Text(
-          title,
-          style: AppTypography.badgeText.copyWith(
-            color: accentColor,
-            fontSize: 11,
-            fontWeight: FontWeight.w800,
-            letterSpacing: 0.8,
-          ),
-        ),
-      ],
     );
   }
 
@@ -380,72 +334,6 @@ class SettingsPage extends StatelessWidget {
             ],
           ),
         ),
-      ),
-    );
-  }
-
-  Widget _buildPrivacyGuaranteeCard(BuildContext context) {
-    final l10n = context.l10n;
-
-    return Container(
-      width: double.infinity,
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          colors: [
-            AppColors.modulePantry.withAlpha(20),
-            AppColors.surfaceCard,
-          ],
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-        ),
-        borderRadius: BorderRadius.circular(16),
-        border: Border.all(
-          color: AppColors.modulePantry.withAlpha(70),
-          width: 1.2,
-        ),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            children: [
-              Container(
-                padding: const EdgeInsets.all(6),
-                decoration: BoxDecoration(
-                  color: AppColors.modulePantry.withAlpha(30),
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                child: const Icon(
-                  Icons.shield_outlined,
-                  size: 16,
-                  color: AppColors.modulePantry,
-                ),
-              ),
-              const SizedBox(width: 8),
-              Expanded(
-                child: Text(
-                  l10n.privacyGuaranteeTitle,
-                  style: AppTypography.badgeText.copyWith(
-                    color: AppColors.modulePantry,
-                    fontSize: 11,
-                    fontWeight: FontWeight.w800,
-                    letterSpacing: 0.6,
-                  ),
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(height: 8),
-          Text(
-            l10n.privacyGuaranteeDesc,
-            style: AppTypography.bodyMedium.copyWith(
-              color: AppColors.textSecondary,
-              fontSize: 12.5,
-              height: 1.45,
-            ),
-          ),
-        ],
       ),
     );
   }
