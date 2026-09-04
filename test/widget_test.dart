@@ -51,13 +51,17 @@ void main() {
     );
   });
 
-  testWidgets('Renders DailyPouch launcher dashboard and navigates to subscription page', (WidgetTester tester) async {
+  testWidgets('Renders DailyPouch launcher, navigates to module, settings, and about app page', (WidgetTester tester) async {
     await tester.pumpWidget(const DailyPouchApp());
     await tester.pumpAndSettle();
 
-    // Verify Title & AppBar
-    expect(find.text('DailyPouch'), findsOneWidget);
-    expect(find.text('Offline Life Tools'), findsOneWidget);
+    // Verify Title & AppBar on Home tab
+    expect(find.text('DailyPouch'), findsWidgets);
+    expect(find.text('Offline Life Tools'), findsWidgets);
+
+    // Verify Bottom Navigation Bar contains Home (house icon) and Settings icons
+    expect(find.byIcon(Icons.home_rounded), findsOneWidget);
+    expect(find.byIcon(Icons.settings_outlined), findsOneWidget);
 
     // Verify 6 ArcadeModuleCard widgets
     expect(find.byType(ArcadeModuleCard), findsNWidgets(6));
@@ -77,24 +81,37 @@ void main() {
     await tester.tap(find.byIcon(Icons.arrow_back_ios_new_rounded));
     await tester.pumpAndSettle();
 
-    expect(find.text('DailyPouch'), findsOneWidget);
+    expect(find.text('Subscription Tracker'), findsOneWidget);
 
-    // Verify Settings button is present on the top right
-    expect(find.byIcon(Icons.settings_outlined), findsOneWidget);
-
-    // Tap the Settings button
+    // Switch to Settings tab in bottom navigation bar via settings icon
     await tester.tap(find.byIcon(Icons.settings_outlined));
     await tester.pumpAndSettle();
 
-    // Verify Settings & About modal content
-    expect(find.text('Settings & About'), findsOneWidget);
+    // Verify Settings page content
     expect(find.text('CENTRAL CURRENCY'), findsOneWidget);
     expect(find.text('ABOUT THE APP'), findsOneWidget);
 
-    // Tap Done to dismiss
-    await tester.tap(find.text('Done'));
+    // Scroll if needed and tap the 'ABOUT THE APP' navigation tile to open AboutAppPage
+    await tester.ensureVisible(find.text('ABOUT THE APP'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('ABOUT THE APP'));
     await tester.pumpAndSettle();
 
-    expect(find.text('Settings & About'), findsNothing);
+    // Verify About App page content
+    expect(find.text('6 OFFLINE LIFE TOOLS'), findsOneWidget);
+    expect(find.text('Interval & Rest Timer'), findsOneWidget);
+
+    // Navigate back from AboutAppPage to Settings
+    await tester.tap(find.byIcon(Icons.arrow_back_ios_new_rounded));
+    await tester.pumpAndSettle();
+
+    expect(find.text('CENTRAL CURRENCY'), findsOneWidget);
+
+    // Switch back to Home tab via home icon
+    await tester.tap(find.byIcon(Icons.home_outlined));
+    await tester.pumpAndSettle();
+
+    // Verify we are back on the Home dashboard
+    expect(find.byType(ArcadeModuleCard), findsNWidgets(6));
   });
 }

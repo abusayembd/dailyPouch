@@ -251,6 +251,66 @@ class AppLocalizations {
         'ja': 'フィットネス',
       });
 
+  String get tabHome => _localizedValue({
+        'en': 'Home',
+        'bn': 'হোম',
+        'es': 'Inicio',
+        'fr': 'Accueil',
+        'de': 'Start',
+        'hi': 'होम',
+        'ar': 'الرئيسية',
+        'zh': '首页',
+        'ja': 'ホーム',
+      });
+
+  String get tabSettings => _localizedValue({
+        'en': 'Settings',
+        'bn': 'সেটিংস',
+        'es': 'Ajustes',
+        'fr': 'Paramètres',
+        'de': 'Einstellungen',
+        'hi': 'सेटिंग्स',
+        'ar': 'الإعدادات',
+        'zh': '设置',
+        'ja': '設定',
+      });
+
+  String get overviewAndDetails => _localizedValue({
+        'en': 'APP OVERVIEW & DETAILS',
+        'bn': 'অ্যাপ পরিচিতি ও বিবরণ',
+        'es': 'INFORMACIÓN Y DETALLES',
+        'fr': 'VUE D\'ENSEMBLE & DÉTAILS',
+        'de': 'ÜBERSICHT & DETAILS',
+        'hi': 'ऐप विवरण और अवलोकन',
+        'ar': 'نظرة عامة والتفاصيل',
+        'zh': '应用总览与详情',
+        'ja': 'アプリ概要と詳細',
+      });
+
+  String get privacyGuaranteeTitle => _localizedValue({
+        'en': '100% OFFLINE & PRIVATE',
+        'bn': '১০০% অফলাইন ও সম্পূর্ণ নিরাপদ',
+        'es': '100% OFFLINE Y PRIVADO',
+        'fr': '100% HORS LIGNE ET PRIVÉ',
+        'de': '100% OFFLINE & PRIVAT',
+        'hi': '100% ऑफ़लाइन और सुरक्षित',
+        'ar': '100% بدون إنترنت وخاص تماماً',
+        'zh': '100% 离线与隐私保护',
+        'ja': '100% オフライン＆プライベート',
+      });
+
+  String get privacyGuaranteeDesc => _localizedValue({
+        'en': 'DailyPouch operates entirely on your device. Zero cloud databases, zero telemetry, zero analytics tracking, and zero ads. Your data belongs exclusively to you.',
+        'bn': 'ডেইলি পাউচ সম্পূর্ণরূপে আপনার ডিভাইসে কাজ করে। কোনো ক্লাউড ডাটাবেজ, ট্র্যাকিং বা বিজ্ঞাপন নেই। আপনার সমস্ত তথ্য আপনার ডিভাইসেই সুরক্ষিত থাকে।',
+        'es': 'DailyPouch funciona completamente en tu dispositivo. Cero bases de datos en la nube, cero telemetría y cero anuncios.',
+        'fr': 'DailyPouch fonctionne entièrement sur votre appareil. Aucune base de données cloud, aucun suivi et aucune publicité.',
+        'de': 'DailyPouch funktioniert vollständig auf Ihrem Gerät. Keine Cloud-Datenbanken, kein Tracking und keine Werbung.',
+        'hi': 'डेली पाउच पूरी तरह से आपके डिवाइस पर काम करता है। कोई क्लाउड डेटाबेस, ट्रैकिंग या विज्ञापन नहीं।',
+        'ar': 'يعمل ديلي باوتش بالكامل على جهازك دون أي قواعد بيانات سحابية أو تتبع أو إعلانات.',
+        'zh': 'DailyPouch 完全在您的本地设备上运行。无云端数据库、无遥测数据、无广告干扰。',
+        'ja': 'DailyPouchはすべてお使いの端末上で動作します。クラウド同期、広告、トラッキングは一切ありません。',
+      });
+
   String get settingsAndAbout => _localizedValue({
         'en': 'Settings & About',
         'bn': 'সেটিংস ও পরিচিতি',
@@ -333,6 +393,18 @@ class AppLocalizations {
         'ar': 'حول التطبيق',
         'zh': '关于应用',
         'ja': 'アプリについて',
+      });
+
+  String get aboutAppSubtitle => _localizedValue({
+        'en': '6 offline micro-tools & app overview',
+        'bn': '৬টি অফলাইন টুলস ও অ্যাপের তথ্য',
+        'es': '6 micro-herramientas offline y vista general',
+        'fr': '6 micro-outils hors ligne et vue d\'ensemble',
+        'de': '6 Offline-Werkzeuge & Übersicht',
+        'hi': '6 ऑफ़लाइन टूल्स और विवरण',
+        'ar': '6 أدوات بدون إنترنت ونظرة عامة',
+        'zh': '6 款离线微工具与应用介绍',
+        'ja': '6つのオフラインツールとアプリ概要',
       });
 
   String get aboutAppDesc => _localizedValue({
