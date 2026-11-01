@@ -4,43 +4,220 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy - dailyPouch</title>
+    <title>Privacy Policy - DailyPouch</title>
+    <meta name="description" content="Privacy Policy for DailyPouch: Offline Life Tools. 100% private, offline, zero data collection.">
     <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 2rem;
-            background-color: #f9f9f9;
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --primary-light: #eff6ff;
+            --success: #059669;
+            --success-light: #ecfdf5;
+            --text-main: #0f172a;
+            --text-muted: #475569;
+            --border: #e2e8f0;
+            --bg-page: #f8fafc;
+            --bg-card: #ffffff;
         }
 
-        h1,
-        h2 {
-            color: #2563EB;
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.65;
+            color: var(--text-main);
+            background-color: var(--bg-page);
+            padding: 2.5rem 1rem;
         }
 
         .container {
-            background-color: #fff;
-            padding: 2rem 3rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 840px;
+            margin: 0 auto;
+            background: var(--bg-card);
+            padding: 3rem 2.5rem;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.05), 0 8px 10px -6px rgba(15, 23, 42, 0.03);
         }
 
-        .highlight {
-            background-color: #E0F2FE;
+        .header {
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .badge-brand {
+            display: inline-block;
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 0.35rem 0.75rem;
+            border-radius: 9999px;
+            margin-bottom: 0.75rem;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--text-main);
+            letter-spacing: -0.025em;
+            margin-bottom: 0.5rem;
+        }
+
+        .meta {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* Summary Hero Card */
+        .summary-card {
+            background: var(--success-light);
+            border: 1px solid #a7f3d0;
+            border-left: 5px solid var(--success);
+            border-radius: 12px;
+            padding: 1.25rem 1.5rem;
+            margin: 1.75rem 0 2.25rem;
+        }
+
+        .summary-card h3 {
+            color: var(--success);
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.35rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .summary-card p {
+            color: #065f46;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        /* Quick Facts Table */
+        .facts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .fact-box {
+            background: var(--bg-page);
+            border: 1px solid var(--border);
+            border-radius: 10px;
             padding: 1rem;
-            border-left: 4px solid #0284C7;
-            margin: 1.5rem 0;
+        }
+
+        .fact-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .fact-value {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .fact-value.green {
+            color: var(--success);
+        }
+
+        /* Content Sections */
+        h2 {
+            font-size: 1.3rem;
+            color: var(--text-main);
+            margin: 2rem 0 0.75rem;
+            padding-bottom: 0.35rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        p, ul, ol {
+            color: var(--text-muted);
+            font-size: 0.975rem;
+            margin-bottom: 1rem;
+        }
+
+        ul {
+            padding-left: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        strong {
+            color: var(--text-main);
+        }
+
+        .permission-card {
+            background: var(--bg-page);
+            border-left: 3px solid var(--primary);
+            padding: 0.85rem 1rem;
+            margin: 0.75rem 0;
             border-radius: 0 8px 8px 0;
         }
 
+        .permission-title {
+            font-weight: 700;
+            color: var(--text-main);
+            font-size: 0.95rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .contact-box {
+            background: var(--primary-light);
+            border: 1px solid #bfdbfe;
+            border-radius: 10px;
+            padding: 1.25rem;
+            margin-top: 1.5rem;
+        }
+
+        .contact-box a {
+            color: var(--primary-dark);
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .contact-box a:hover {
+            text-decoration: underline;
+        }
+
         footer {
-            margin-top: 2rem;
-            font-size: 0.9rem;
-            color: #666;
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+            font-size: 0.85rem;
+            color: var(--text-muted);
             text-align: center;
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 1rem 0.5rem;
+            }
+
+            .container {
+                padding: 1.5rem 1.25rem;
+                border-radius: 12px;
+            }
+
+            h1 {
+                font-size: 1.6rem;
+            }
         }
     </style>
 </head>
@@ -48,49 +225,141 @@
 <body>
 
     <div class="container">
-        <h1>Privacy Policy for dailyPouch</h1>
-        <p><strong>Effective Date:</strong> September 11, 2026</p>
+        <header class="header">
+            <span class="badge-brand">DailyPouch • Offline Life Tools</span>
+            <h1>Privacy Policy</h1>
+            <div class="meta">
+                <strong>Effective Date:</strong> November 1, 2026 &nbsp;|&nbsp; 
+                <strong>Last Updated:</strong> November 1, 2026
+            </div>
+        </header>
 
-        <div class="highlight">
-            <strong>The Short Version:</strong> dailyPouch is a 100% offline and private application. We do not collect,
-            store, or share any of your personal data. Everything stays exactly where it belongs—on your device.
+        <!-- Executive Summary -->
+        <div class="summary-card">
+            <h3>✓ 100% Private &amp; Offline Promise</h3>
+            <p>
+                <strong>DailyPouch</strong> does not collect, track, transmit, or monetize any of your personal, financial, or usage information. 
+                Everything you create inside the app is saved exclusively within your device's isolated local storage.
+            </p>
         </div>
 
-        <h2>1. Data Collection and Usage</h2>
-        <p>dailyPouch operates entirely offline. The app does not collect, transmit, or store any personal information,
-            financial data, or usage metrics on any external servers. All data you enter into the app (such as budgets,
-            expenses, and pantry items) is saved securely and locally on your device.</p>
+        <!-- Quick Compliance Grid -->
+        <div class="facts-grid">
+            <div class="fact-box">
+                <div class="fact-label">Data Collection</div>
+                <div class="fact-value green">0% (None)</div>
+            </div>
+            <div class="fact-box">
+                <div class="fact-label">Cloud / Remote Servers</div>
+                <div class="fact-value green">None</div>
+            </div>
+            <div class="fact-box">
+                <div class="fact-label">Third-Party Trackers &amp; Ads</div>
+                <div class="fact-value green">None</div>
+            </div>
+            <div class="fact-box">
+                <div class="fact-label">User Account Needed</div>
+                <div class="fact-value green">No (Zero Sign-up)</div>
+            </div>
+        </div>
 
-        <h2>2. Third-Party Services</h2>
-        <p>Because dailyPouch does not connect to the internet to function, we do not integrate with third-party
-            analytics trackers, advertising networks, or data collection services. We have no backend servers, meaning a
-            data breach of your information from our end is impossible.</p>
-
-        <h2>3. Permissions</h2>
-        <p>dailyPouch respects your privacy and only requests the absolute minimum permissions required for the app to
-            function properly on your device. The app does not request access to your contacts, location, camera, or
-            microphone.</p>
-
-        <h2>4. Data Retention and Deletion</h2>
-        <p>Your data belongs to you. Since all data is stored locally on your device, you have complete control over it.
-            You can delete all your data at any time simply by clearing the app's data in your device settings or
-            uninstalling dailyPouch.</p>
-
-        <h2>5. Changes to This Privacy Policy</h2>
-        <p>We may update this Privacy Policy from time to time. If any changes are made, we will update the "Effective
-            Date" at the top of this page. However, our core commitment to keeping dailyPouch 100% offline and private
-            will never change.</p>
-
-        <h2>6. Contact Us</h2>
-        <p>If you have any questions or suggestions about our Privacy Policy, please contact us at:
-            <strong>abusayemsarkarbd@gmail.com</strong>.
+        <h2>1. Overview &amp; Philosophy</h2>
+        <p>
+            This Privacy Policy applies to the mobile application <strong>DailyPouch: Offline Life Tools</strong> (hereinafter referred to as the "App"), developed by <strong>Abu Sayem Sarkar</strong>. 
         </p>
+        <p>
+            The App was engineered on an <em>offline-first</em>, privacy-by-default architecture. We believe your daily budget, personal expenses, utility subscriptions, pantry goods, and workouts are strictly personal. Consequently, the App functions autonomously without requiring network connectivity, user registration, account creation, or external server communication.
+        </p>
+
+        <h2>2. Data Collection and Processing</h2>
+        <p>
+            <strong>We collect zero personal data.</strong> Specifically:
+        </p>
+        <ul>
+            <li><strong>No Personal Identifiers:</strong> We do not ask for or collect names, email addresses, phone numbers, contacts, or biometric records.</li>
+            <li><strong>No Financial Records:</strong> Any budgets, subscription fees, pantry purchases, price calculations, and cash flow records you input remain strictly local to your device.</li>
+            <li><strong>No Tracking or Diagnostics:</strong> We do not use behavioral tracking SDKs, ad networks, device fingerprinting, or automated telemetry.</li>
+            <li><strong>No Location Data:</strong> The App does not access, collect, or monitor GPS or network-based location data.</li>
+        </ul>
+
+        <h2>3. Local Storage and Data Security</h2>
+        <p>
+            All user data created across the App's modules (Subscription Tracker, Smart Unit Price Calculator, Pantry &amp; Medicine Expiry Tracker, Expense Tracker, Envelope Budgeter, and Interval Workout Timer) is written directly to the operating system's private sandboxed internal storage (via standard local device files).
+        </p>
+        <p>
+            Because no data ever traverses an external network or resides on third-party cloud infrastructure, remote server-side breaches or unauthorized third-party access to your data through our services is architecturally impossible. Your data is protected by your device's physical security, PIN, and operating system encryption.
+        </p>
+
+        <h2>4. Device Permissions &amp; Hardware Capabilities</h2>
+        <p>
+            DailyPouch adheres to the principle of least privilege. We only request the minimum device permissions necessary to perform offline functions:
+        </p>
+
+        <div class="permission-card">
+            <div class="permission-title">🔔 Notifications (POST_NOTIFICATIONS)</div>
+            Used solely to deliver scheduled reminders directly from your operating system (such as impending pantry expiration dates or upcoming subscription bill renewals). These notifications are generated locally on-device without any internet requests.
+        </div>
+
+        <div class="permission-card">
+            <div class="permission-title">⏱️ Keep Screen Awake (WAKE_LOCK)</div>
+            Used strictly within the Interval &amp; Workout Timer module to prevent your screen from turning off while actively running a workout routine.
+        </div>
+
+        <div class="permission-card">
+            <div class="permission-title">📤 User-Initiated Export &amp; Sharing</div>
+            If you choose to export summaries or receipts (such as generating a PDF report or sharing a calculation), the App creates the document locally in temporary memory. Sharing occurs solely via the native operating system share sheet triggered explicitly by you.
+        </div>
+
+        <h2>5. Third-Party Services and Advertising</h2>
+        <p>
+            DailyPouch contains <strong>no advertisements</strong> and integrates with <strong>no third-party advertising or analytics SDKs</strong> (such as Google AdMob, Meta Audience Network, Firebase Analytics, Flurry, or AppsFlyer). The App operates independently of any commercial data exchange or ad-serving network.
+        </p>
+
+        <h2>6. Data Retention, Control, and Deletion</h2>
+        <p>
+            You retain 100% control over all data stored within DailyPouch:
+        </p>
+        <ul>
+            <li><strong>Modifying &amp; Deleting Entries:</strong> You can edit or permanently delete individual expenses, subscriptions, or pantry items at any time within each respective tool.</li>
+            <li><strong>Purging All App Data:</strong> You can erase all stored information instantly at the OS level by navigating to your device's <em>Settings &gt; Apps &gt; DailyPouch &gt; Storage &gt; Clear Data / Clear Storage</em>.</li>
+            <li><strong>App Uninstallation:</strong> Uninstalling DailyPouch automatically and permanently deletes all locally stored data, databases, and preferences associated with the App from your device.</li>
+        </ul>
+
+        <h2>7. Children's Online Privacy (COPPA &amp; GDPR-K Compliance)</h2>
+        <p>
+            DailyPouch is safe for general audiences and complies fully with the <strong>Children's Online Privacy Protection Act (COPPA)</strong> and Article 8 of the <strong>GDPR</strong>. Because DailyPouch does not collect, store, or share any personal data from any user, it does not knowingly collect or solicit personal information from children under the age of 13 (or under 16 in the European Union).
+        </p>
+
+        <h2>8. Global Privacy Rights (GDPR &amp; CCPA/CPRA)</h2>
+        <p>
+            Under legal frameworks such as the European Union's <strong>General Data Protection Regulation (GDPR)</strong> and the <strong>California Consumer Privacy Act (CCPA/CPRA)</strong>:
+        </p>
+        <ul>
+            <li><strong>Right to Access &amp; Portability:</strong> All your data is accessible to you at all times directly on your device.</li>
+            <li><strong>Right to Erasure (Right to be Forgotten):</strong> You can delete all your records at any time without needing to request permission or submit a ticket.</li>
+            <li><strong>"Do Not Sell My Personal Information":</strong> We do not sell, rent, monetize, or disclose your personal data to any third party for monetary or commercial consideration.</li>
+        </ul>
+
+        <h2>9. Changes to This Privacy Policy</h2>
+        <p>
+            We may update our Privacy Policy periodically to reflect app enhancements or legal adjustments. Any modifications will be posted directly to this public web page with an updated "Last Updated" timestamp. We recommend reviewing this page periodically for any changes.
+        </p>
+
+        <h2>10. Developer Contact</h2>
+        <p>
+            If you have questions, feedback, or concerns regarding this Privacy Policy or the security practices of DailyPouch, please contact the developer directly:
+        </p>
+        <div class="contact-box">
+            <strong>Developer:</strong> Abu Sayem Sarkar<br>
+            <strong>Application:</strong> DailyPouch: Offline Life Tools<br>
+            <strong>Email:</strong> <a href="mailto:abusayemsarkarbd@gmail.com">abusayemsarkarbd@gmail.com</a><br>
+            <strong>GitHub Repository:</strong> <a href="https://github.com/abusayembd/dailyPouch" target="_blank" rel="noopener noreferrer">https://github.com/abusayembd/dailyPouch</a>
+        </div>
+
+        <footer>
+            &copy; 2026 DailyPouch by Abu Sayem Sarkar. All rights reserved.
+        </footer>
     </div>
 
-    <footer>
-        &copy; 2026 dailyPouch. All rights reserved.
-    </footer>
-
 </body>
-
 </html>
