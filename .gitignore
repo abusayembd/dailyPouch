@@ -50,3 +50,7 @@ app.*.map.json
 *.keystore
 **/android/key.properties
 
+# Documentation & Internal Planning
+/docs/
+
+
