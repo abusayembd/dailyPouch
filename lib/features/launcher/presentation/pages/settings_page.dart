@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:dailypouch/core/currency/currency_cubit.dart';
 import 'package:dailypouch/core/currency/currency_entity.dart';
 import 'package:dailypouch/core/currency/searchable_currency_picker.dart';
@@ -94,6 +95,25 @@ class SettingsPage extends StatelessWidget {
                 );
               },
             ),
+            const SizedBox(height: 12),
+
+            // -------------------------------------------------------------
+            // PRIVACY POLICY NAVIGATION TILE
+            // -------------------------------------------------------------
+            _buildNavigationTile(
+              context: context,
+              icon: Icons.shield_outlined,
+              iconColor: AppColors.moduleBudgeter,
+              iconGradient: AppColors.budgeterGradient,
+              title: l10n.privacyPolicy,
+              subtitle: l10n.privacyPolicySubtitle,
+              onTap: () async {
+                final uri = Uri.parse('https://abusayembd.github.io/dailyPouch/privacy_policy/');
+                if (await canLaunchUrl(uri)) {
+                  await launchUrl(uri, mode: LaunchMode.externalApplication);
+                }
+              },
+            ),
           ],
         ),
       ),
@@ -124,20 +144,21 @@ class SettingsPage extends StatelessWidget {
             width: 52,
             height: 52,
             decoration: BoxDecoration(
-              gradient: AppColors.primaryGradient,
               borderRadius: BorderRadius.circular(16),
               boxShadow: [
                 BoxShadow(
-                  color: AppColors.primary.withAlpha(90),
-                  blurRadius: 14,
+                  color: AppColors.primary.withAlpha(40),
+                  blurRadius: 12,
                   offset: const Offset(0, 4),
                 ),
               ],
             ),
-            child: const Icon(
-              Icons.all_inbox_rounded,
-              color: Colors.white,
-              size: 28,
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(16),
+              child: Image.asset(
+                'assets/icons/daily_pouch.png',
+                fit: BoxFit.cover,
+              ),
             ),
           ),
           const SizedBox(width: 16),

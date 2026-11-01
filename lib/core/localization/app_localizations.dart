@@ -406,6 +406,30 @@ class AppLocalizations {
         'ja': '6つのオフラインツールとアプリ概要',
       });
 
+  String get privacyPolicy => _localizedValue({
+        'en': 'PRIVACY POLICY',
+        'bn': 'গোপনীয়তা নীতি',
+        'es': 'POLÍTICA DE PRIVACIDAD',
+        'fr': 'POLITIQUE DE CONFIDENTIALITÉ',
+        'de': 'DATENSCHUTZRICHTLINIE',
+        'hi': 'गोपनीयता नीति',
+        'ar': 'سياسة الخصوصية',
+        'zh': '隐私政策',
+        'ja': 'プライバシーポリシー',
+      });
+
+  String get privacyPolicySubtitle => _localizedValue({
+        'en': 'Zero data collection. 100% private & offline',
+        'bn': 'কোন তথ্য সংগ্রহ নয়। সম্পূর্ণ ব্যক্তিগত ও অফলাইন',
+        'es': 'Cero recolección de datos. 100% privada y offline',
+        'fr': 'Zéro collecte de données. 100% privé et hors ligne',
+        'de': 'Keine Datenerfassung. 100% privat & offline',
+        'hi': 'कोई डेटा एकत्र नहीं। 100% निजी और ऑफ़लाइन',
+        'ar': 'بدون جمع بيانات. 100% خاص وبدون إنترنت',
+        'zh': '零数据收集。100% 私密且离线',
+        'ja': 'データ収集ゼロ。100%プライベート＆オフライン',
+      });
+
   String get aboutAppDesc => _localizedValue({
         'en': 'DailyPouch is a small pocket container holding all your daily essentials — 6 fast, purposeful offline utility tools designed to replace cluttered single-use apps with an intuitive on-device experience.',
         'bn': 'ডেইলি পাউচ আপনার সমস্ত দৈনন্দিন প্রয়োজনীয় জিনিস রাখার একটি ছোট পকেট কন্টেইনার — একাধিক অ্যাপের ঝামেলা কমিয়ে সম্পূর্ণ অফলাইনে কাজ করে এমন ৬টি দ্রুত ও নির্ভরযোগ্য টুলস।',

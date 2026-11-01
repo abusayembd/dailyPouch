@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:dailypouch/core/localization/app_localizations.dart';
 import 'package:dailypouch/core/theme/app_colors.dart';
 import 'package:dailypouch/core/theme/app_typography.dart';
@@ -160,6 +161,77 @@ class AboutAppPage extends StatelessWidget {
               description:
                   'Pace your workouts, Tabata, HIIT sets, boxing rounds, and stretching routines. Includes audio chime cues, routine presets, and screen wakelock.',
             ),
+            const SizedBox(height: 20),
+
+            // -------------------------------------------------------------
+            // PRIVACY POLICY & TRUST BANNER
+            // -------------------------------------------------------------
+            InkWell(
+              borderRadius: BorderRadius.circular(16),
+              onTap: () async {
+                final uri = Uri.parse('https://abusayembd.github.io/dailyPouch/privacy_policy/');
+                if (await canLaunchUrl(uri)) {
+                  await launchUrl(uri, mode: LaunchMode.externalApplication);
+                }
+              },
+              child: Container(
+                width: double.infinity,
+                padding: const EdgeInsets.all(16),
+                decoration: BoxDecoration(
+                  color: AppColors.surfaceCard,
+                  borderRadius: BorderRadius.circular(16),
+                  border: Border.all(color: AppColors.cardBorder, width: 1),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withAlpha(8),
+                      blurRadius: 10,
+                      offset: const Offset(0, 2),
+                    ),
+                  ],
+                ),
+                child: Row(
+                  children: [
+                    Container(
+                      width: 40,
+                      height: 40,
+                      decoration: BoxDecoration(
+                        gradient: AppColors.budgeterGradient,
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: const Icon(Icons.shield_outlined, color: Colors.white, size: 20),
+                    ),
+                    const SizedBox(width: 14),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            l10n.privacyPolicy,
+                            style: AppTypography.headlineMedium.copyWith(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                          const SizedBox(height: 2),
+                          Text(
+                            l10n.privacyPolicySubtitle,
+                            style: AppTypography.bodyMedium.copyWith(
+                              color: AppColors.textMuted,
+                              fontSize: 11.5,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    const Icon(
+                      Icons.open_in_new_rounded,
+                      color: AppColors.textMuted,
+                      size: 18,
+                    ),
+                  ],
+                ),
+              ),
+            ),
           ],
         ),
       ),
@@ -190,20 +262,21 @@ class AboutAppPage extends StatelessWidget {
             width: 52,
             height: 52,
             decoration: BoxDecoration(
-              gradient: AppColors.primaryGradient,
               borderRadius: BorderRadius.circular(16),
               boxShadow: [
                 BoxShadow(
-                  color: AppColors.primary.withAlpha(90),
-                  blurRadius: 14,
+                  color: AppColors.primary.withAlpha(40),
+                  blurRadius: 12,
                   offset: const Offset(0, 4),
                 ),
               ],
             ),
-            child: const Icon(
-              Icons.all_inbox_rounded,
-              color: Colors.white,
-              size: 28,
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(16),
+              child: Image.asset(
+                'assets/icons/daily_pouch.png',
+                fit: BoxFit.cover,
+              ),
             ),
           ),
           const SizedBox(width: 16),

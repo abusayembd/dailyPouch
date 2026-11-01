@@ -1,4 +1,4 @@
-package com.example.nestomi
+package com.abusayembd.dailypouch
 
 import io.flutter.embedding.android.FlutterActivity
 

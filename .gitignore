@@ -30,8 +30,9 @@ migrate_working_dir/
 .flutter-plugins-dependencies
 .pub-cache/
 .pub/
-/build/
+**/build/
 /coverage/
+**/.gradle/
 
 # Symbolication related
 app.*.symbols
@@ -43,3 +44,9 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# Keystore & Signing keys (NEVER commit to version control)
+*.jks
+*.keystore
+**/android/key.properties
+
